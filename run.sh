@@ -1,0 +1,1 @@
+PORT=29501 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t1.py 8 --amp

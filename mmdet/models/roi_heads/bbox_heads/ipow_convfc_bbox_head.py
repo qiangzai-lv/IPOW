@@ -875,7 +875,7 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
             scores,
             rcnn_test_cfg.score_thr,
             rcnn_test_cfg.nms,
-            rcnn_test_cfg.max_per_img,
+            max_num=-1,
             return_inds=True,
             box_dim=box_dim)
 
@@ -903,8 +903,14 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         gate_mask = (
             (predicted_class_support < self.concept_gate_support_thr) &
             (det_unknown_score > self.concept_gate_unknown_thr))
+        gated_roi_mask = torch.zeros(
+            num_rois, dtype=torch.bool, device=roi.device)
+        gated_roi_mask[det_roi_inds[gate_mask]] = True
         det_bboxes = det_bboxes[~gate_mask]
         det_labels = det_labels[~gate_mask]
+        if rcnn_test_cfg.max_per_img > 0:
+            det_bboxes = det_bboxes[:rcnn_test_cfg.max_per_img]
+            det_labels = det_labels[:rcnn_test_cfg.max_per_img]
 
         # Unknown processing stays in resized-image coordinates. For a
         # class-specific regressor, use the box of the strongest known class
@@ -921,8 +927,10 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
 
         reliable_known_bboxes = det_bboxes[
             det_bboxes[:, -1] > 0.5, :box_dim]
-        bboxes_filter, bboxes_mask = filter_bbox_iou_only(
+        _, bboxes_mask = filter_bbox_iou_only(
             proposal_bboxes, reliable_known_bboxes)
+        bboxes_mask = bboxes_mask | gated_roi_mask
+        bboxes_filter = proposal_bboxes[bboxes_mask]
         unknown_score_filter = unknown_score[bboxes_mask]
         shared_unknown_signal = (
             max_shared_activation * (1 - max_rectified_known_score))[

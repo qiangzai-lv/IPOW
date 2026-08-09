@@ -35,10 +35,10 @@ This repo is based on [MMDetection 3.3](https://github.com/open-mmlab/mmdetectio
 
 ```bash
 # Train Model On OWOD
-PORT=29501 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t1.py 4 --amp
-PORT=29501 DATASET=MOWODB TASK=2 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t2.py 4 --amp
-PORT=29501 DATASET=MOWODB TASK=3 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t3.py 4 --amp
-PORT=29501 DATASET=MOWODB TASK=4 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t4.py 4 --amp
+PORT=29501 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t1.py 8 --amp
+PORT=29501 DATASET=MOWODB TASK=2 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t2.py 8 --amp
+PORT=29501 DATASET=MOWODB TASK=3 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t3.py 8 --amp
+PORT=29501 DATASET=MOWODB TASK=4 bash ./tools/dist_train.sh configs/itow/itow_owod_mowodb_t4.py 8 --amp
 ```
 
 ### Acknowledgement

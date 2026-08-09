@@ -37,15 +37,22 @@ def get_fg_score_pca_no_center(fix_concept_feat, query_feats, n_components=24, t
         fg_scores: [N_query, 1] - 归一化后的前景得分
     """
 
-    import torch.nn.functional as F
-
     # 1. L2 归一化
-    bg_feats = F.normalize(fix_concept_feat, p=2, dim=1)
-    q_feats = F.normalize(query_feats, p=2, dim=1)
+    if query_feats.numel() == 0:
+        return query_feats.new_zeros((query_feats.size(0), ))
+    if fix_concept_feat.numel() == 0:
+        return query_feats.new_zeros((query_feats.size(0), ))
+
+    bg_feats = F.normalize(fix_concept_feat.float(), p=2, dim=1)
+    q_feats = F.normalize(query_feats.float(), p=2, dim=1)
+    n_components = min(n_components, bg_feats.size(0), bg_feats.size(1))
+    if n_components < 1:
+        return query_feats.new_zeros((query_feats.size(0), ))
 
     # 2. 直接计算 PCA（center=False 表示不去中心化）
-    with torch.cuda.amp.autocast(enabled=False):
-        U, S, V = torch.pca_lowrank(bg_feats, q=n_components, center=False)
+    with torch.autocast(device_type=bg_feats.device.type, enabled=False):
+        _, _, V = torch.pca_lowrank(
+            bg_feats, q=n_components, center=False)
 
     # 3. 投影与重构（注意这里不需要去中心化）
     projected_coeffs = torch.mm(q_feats, V)
@@ -65,7 +72,7 @@ def get_fg_score_pca_no_center(fix_concept_feat, query_feats, n_components=24, t
     #
     # fg_scores = (recon_error - e_min) / (e_max - e_min + 1e-8)
 
-    return fg_scores  # [N, 1]
+    return fg_scores.to(query_feats.dtype)  # [N]
 
 
 def filter_by_ref_keep_bboxes(
@@ -202,6 +209,55 @@ def sigmoid_activation_without_bg(cls_score):
     fine_cls_score = cls_score
     score_classes = fine_cls_score.sigmoid()
     return score_classes
+
+
+def get_class_shared_concept_support(
+        shared_activations,
+        class_concept_labels,
+        eps=1e-6):
+    """Return each proposal's geometric-mean support for every class."""
+    if shared_activations.size(1) != class_concept_labels.size(1):
+        raise ValueError(
+            'shared activations and shared concept labels do not align')
+
+    concept_mask = class_concept_labels.to(
+        device=shared_activations.device, dtype=torch.float32)
+    concept_mask = (concept_mask > 0).float()
+    concept_counts = concept_mask.sum(dim=1)
+
+    # Geometric mean in the log domain avoids underflow when a class owns
+    # many shared concepts. Classes without mapped concepts are unchanged.
+    log_activations = shared_activations.float().clamp(min=eps, max=1.0).log()
+    mean_log_support = (
+        (log_activations @ concept_mask.t()) /
+        concept_counts.clamp_min(1.0).unsqueeze(0))
+    concept_support = mean_log_support.exp()
+    concept_support = torch.where(
+        concept_counts.unsqueeze(0) > 0,
+        concept_support,
+        torch.ones_like(concept_support))
+    return concept_support
+
+
+def rectify_known_scores_with_shared_concepts(
+        class_scores,
+        concept_support,
+        eta=0.2):
+    """Apply the weak concept-guided rectification from IPOW Eq. (23)."""
+    if eta < 0:
+        raise ValueError('concept rectification eta must be non-negative')
+
+    num_classes = concept_support.size(1)
+    if class_scores.size(1) < num_classes:
+        raise ValueError('class scores and concept support do not align')
+    if class_scores.size(0) != concept_support.size(0):
+        raise ValueError('class scores and concept support do not align')
+
+    correction = concept_support.pow(eta).to(class_scores.dtype)
+
+    rectified_scores = class_scores.clone()
+    rectified_scores[:, :num_classes] *= correction
+    return rectified_scores
 
 
 def get_class_concept_onehot(concept_map, attribute_list, class_list):
@@ -555,6 +611,18 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
                                                                  self.known_texts)
         self.dist_concept_label_onehot = get_dist_class_concept_onehot(dist_concept_feat_map, dist_concept_feat_list,
                                                                        self.known_texts)
+        self.concept_rectification_eta = float(
+            owod_cfg.get('concept_rectification_eta', 0.2))
+        if self.concept_rectification_eta < 0:
+            raise ValueError('concept_rectification_eta must be non-negative')
+        self.concept_gate_support_thr = float(
+            owod_cfg.get('concept_gate_support_thr', 0.5))
+        self.concept_gate_unknown_thr = float(
+            owod_cfg.get('concept_gate_unknown_thr', 0.2))
+        if not 0 <= self.concept_gate_support_thr <= 1:
+            raise ValueError('concept gate support threshold must be in [0, 1]')
+        if not 0 <= self.concept_gate_unknown_thr <= 1:
+            raise ValueError('concept gate unknown threshold must be in [0, 1]')
 
         self.focal_loss = FocalLoss()
 
@@ -779,6 +847,13 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         else:
             scores = F.softmax(
                 cls_score, dim=-1) if cls_score is not None else None
+        class_concept_support = get_class_shared_concept_support(
+            con_concept_score,
+            self.con_concept_label_onehot)
+        scores = rectify_known_scores_with_shared_concepts(
+            scores,
+            class_concept_support,
+            eta=self.concept_rectification_eta)
 
         img_shape = img_meta['img_shape']
         num_rois = roi.size(0)
@@ -790,48 +865,96 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         bboxes = self.bbox_coder.decode(
             roi[..., 1:], bbox_pred, max_shape=img_shape)
 
-        if rescale and bboxes.size(0) > 0:
-            assert img_meta.get('scale_factor') is not None
-            scale_factor = [1 / s for s in img_meta['scale_factor']]
-            bboxes = scale_boxes(bboxes, scale_factor)
-
         # Get the inside tensor when `bboxes` is a box type
         bboxes = get_box_tensor(bboxes)
         box_dim = bboxes.size(-1)
         bboxes = bboxes.view(num_rois, -1)
 
-        det_bboxes, det_labels = multiclass_nms(
+        det_bboxes, det_labels, det_inds = multiclass_nms(
             bboxes,
             scores,
             rcnn_test_cfg.score_thr,
             rcnn_test_cfg.nms,
             rcnn_test_cfg.max_per_img,
+            return_inds=True,
             box_dim=box_dim)
 
-        # concept bg feat
-        fg_det_bboxes = det_bboxes[det_bboxes[:, -1] > 0.5][:, :4]
-        fix_anchors_filter, fix_keep_mask = filter_bbox_iou_only(fix_anchors, fg_det_bboxes)
-        fix_anchors_feat = fix_concept_feat[fix_keep_mask]
-        bboxes_filter, bboxes_mask = filter_bbox_iou_only(bboxes, fg_det_bboxes)
-        bboxes_concept_feat = concept_feat[bboxes_mask]
-        fix_anchors_feat = torch.cat([fix_anchors_feat, bboxes_concept_feat], dim=0)
-
+        # Eq. (24): shared concepts are the primary unknown evidence and the
+        # fixed-anchor PCA score supplements them. Query features must never
+        # enter the PCA reference set.
         concept_fg_score = get_fg_score_pca_no_center(
-            fix_anchors_feat,
-            bboxes_concept_feat,
+            fix_concept_feat,
+            concept_feat,
             n_components=8
-        ).unsqueeze(-1)
-        det_bg_concept_bboxes, det_bg_concept_labels = class_agnostic_nms_with_size(bboxes_filter, concept_fg_score,
-                                                                                    min_size=10,
-                                                                                    iou_threshold=0.5,
-                                                                                    score_threshold=0.1,
-                                                                                    score_weight=0.8, max_num=200)
+        )
+        max_shared_activation = con_concept_score.max(dim=1).values
+        max_rectified_known_score = scores[:, :self.num_classes].max(
+            dim=1).values
+        unknown_score = torch.maximum(
+            max_shared_activation, concept_fg_score)
+        unknown_score = unknown_score * (1 - max_rectified_known_score)
 
-        det_con_concept_bboxes, det_con_concept_labels = class_agnostic_nms(bboxes, con_concept_score, max_num=80,
-                                                                            iou_threshold=0.4)
+        # multiclass_nms flattens [proposal, class], so recover the proposal
+        # that generated each known detection before applying the dual gate.
+        det_roi_inds = det_inds // self.num_classes
+        predicted_class_support = class_concept_support[
+            det_roi_inds, det_labels]
+        det_unknown_score = unknown_score[det_roi_inds]
+        gate_mask = (
+            (predicted_class_support < self.concept_gate_support_thr) &
+            (det_unknown_score > self.concept_gate_unknown_thr))
+        det_bboxes = det_bboxes[~gate_mask]
+        det_labels = det_labels[~gate_mask]
 
-        det_con_concept_labels = det_con_concept_labels + self.num_classes
-        det_bg_concept_labels = det_bg_concept_labels + self.num_classes
+        # Unknown processing stays in resized-image coordinates. For a
+        # class-specific regressor, use the box of the strongest known class
+        # as the proposal's class-agnostic unknown box.
+        if bboxes.size(1) == box_dim:
+            proposal_bboxes = bboxes
+        else:
+            proposal_bboxes_by_class = bboxes.view(
+                num_rois, self.num_classes, box_dim)
+            strongest_known_class = scores[:, :self.num_classes].argmax(dim=1)
+            proposal_bboxes = proposal_bboxes_by_class[
+                torch.arange(num_rois, device=bboxes.device),
+                strongest_known_class]
+
+        reliable_known_bboxes = det_bboxes[
+            det_bboxes[:, -1] > 0.5, :box_dim]
+        bboxes_filter, bboxes_mask = filter_bbox_iou_only(
+            proposal_bboxes, reliable_known_bboxes)
+        unknown_score_filter = unknown_score[bboxes_mask]
+        shared_unknown_signal = (
+            max_shared_activation * (1 - max_rectified_known_score))[
+                bboxes_mask]
+        bg_unknown_signal = (
+            concept_fg_score * (1 - max_rectified_known_score))[
+                bboxes_mask]
+
+        # Shared-concept candidates are selected first. Both branches retain
+        # the paper's combined Eq. (24) score for final ranking.
+        con_candidate_scores = torch.where(
+            shared_unknown_signal > 0.05,
+            unknown_score_filter,
+            torch.zeros_like(unknown_score_filter)).unsqueeze(-1)
+        det_con_concept_bboxes, _ = class_agnostic_nms(
+            bboxes_filter,
+            con_candidate_scores,
+            max_num=100,
+            iou_threshold=0.4)
+
+        bg_candidate_scores = torch.where(
+            bg_unknown_signal > 0.01,
+            unknown_score_filter,
+            torch.zeros_like(unknown_score_filter)).unsqueeze(-1)
+        det_bg_concept_bboxes, det_bg_concept_labels = \
+            class_agnostic_nms_with_size(
+                bboxes_filter,
+                bg_candidate_scores,
+                min_size=10,
+                iou_threshold=0.5,
+                score_threshold=0.01,
+                max_num=500)
 
         det_bg_concept_bboxes, det_bg_concept_labels = filter_by_ref_keep_bboxes(
             det_bg_concept_bboxes,
@@ -843,12 +966,14 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         unknown_bboxes = torch.cat(
             [det_con_concept_bboxes, det_bg_concept_bboxes],
             dim=0)
-        unknown_labels = torch.cat(
-            [det_con_concept_labels, det_bg_concept_labels],
-            dim=0)
-
-        unknown_bboxes = unknown_bboxes[:100]
-        unknown_labels = unknown_labels[:100]
+        if unknown_bboxes.numel() > 0:
+            keep = nms(
+                unknown_bboxes[:, :box_dim],
+                unknown_bboxes[:, -1],
+                0.5)[:100]
+            unknown_bboxes = unknown_bboxes[keep]
+        unknown_labels = det_labels.new_full(
+            (unknown_bboxes.size(0), ), self.num_classes)
 
         combined_bboxes = torch.cat(
             [det_bboxes, unknown_bboxes],
@@ -856,6 +981,14 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         combined_labels = torch.cat(
             [det_labels, unknown_labels],
             dim=0)
+
+        if rescale and combined_bboxes.size(0) > 0:
+            assert img_meta.get('scale_factor') is not None
+            scale_factor = [1 / s for s in img_meta['scale_factor']]
+            rescaled_bboxes = scale_boxes(
+                combined_bboxes[:, :box_dim], scale_factor)
+            combined_bboxes = torch.cat(
+                [rescaled_bboxes, combined_bboxes[:, -1:]], dim=1)
 
         results.bboxes = combined_bboxes[:, :-1]
         results.scores = combined_bboxes[:, -1]

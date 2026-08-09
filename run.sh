@@ -45,3 +45,6 @@ python utils_ipow/cls_text_embedding.py \
   --task 4 \
   --clip-model /root/shared-nvme/data/pretrain/clip-vit-base-patch32 \
   --device cuda:0
+
+
+bash tools/dist_test.sh configs/ipow/ipow_owod_mowodb_t1_80.py /root/shared-nvme/IPOW/work_dirs/ipow_owod_mowodb_t1/epoch_12.pth 8

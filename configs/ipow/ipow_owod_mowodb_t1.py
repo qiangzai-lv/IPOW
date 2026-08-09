@@ -16,7 +16,10 @@ owod_cfg = dict(
     dist_concept_feat_path='/root/shared-nvme/IPOW/embeddings/concept_embeddings/mowodb_t1_dist/MOWODB_t1_dist_embeddings.pth',
     randm_gmm_path='/root/shared-nvme/IPOW/embeddings/gmm_rpn/mowodb_t1_class_gmm.pkl',
     gmm_n_samples=80,
-    gmm_iou_thresh=0.7
+    gmm_iou_thresh=0.7,
+    concept_rectification_eta=0.2,
+    concept_gate_support_thr=0.5,
+    concept_gate_unknown_thr=0.2
 )
 
 # model settings

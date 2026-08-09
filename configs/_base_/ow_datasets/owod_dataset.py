@@ -17,7 +17,7 @@ owod_settings = {
     }
 }
 
-owod_root = "data/OWOD"
+owod_root = "/root/shared-nvme/data/OWOD"
 
 # Configs from environment variables
 owod_dataset = '{{$DATASET:MOWODB}}'                                              # dataset name (default: MOWODB)

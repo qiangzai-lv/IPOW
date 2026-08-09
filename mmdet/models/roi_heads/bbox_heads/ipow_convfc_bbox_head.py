@@ -1,6 +1,4 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-
-from copy import deepcopy
 from typing import List, Union
 from typing import Tuple, Optional
 
@@ -25,27 +23,71 @@ from mmdet.utils import InstanceList
 from .bbox_head import BBoxHead
 
 
+def get_fg_score_pca_no_center(fix_concept_feat, query_feats, n_components=24, temp=0.1):
+    """
+    使用 PCA 子空间重构计算前景得分（不去中心化版本）
+
+    参数:
+        fix_concept_feat: [N_bg, 1024] - 纯净的背景参考特征
+        query_feats:      [N_query, 1024] - 待测目标特征
+        n_components:     int - PCA 保留的主成分数量
+        temp:             float - 温度参数
+
+    返回:
+        fg_scores: [N_query, 1] - 归一化后的前景得分
+    """
+
+    import torch.nn.functional as F
+
+    # 1. L2 归一化
+    bg_feats = F.normalize(fix_concept_feat, p=2, dim=1)
+    q_feats = F.normalize(query_feats, p=2, dim=1)
+
+    # 2. 直接计算 PCA（center=False 表示不去中心化）
+    with torch.cuda.amp.autocast(enabled=False):
+        U, S, V = torch.pca_lowrank(bg_feats, q=n_components, center=False)
+
+    # 3. 投影与重构（注意这里不需要去中心化）
+    projected_coeffs = torch.mm(q_feats, V)
+    reconstructed_feats = torch.mm(projected_coeffs, V.t())
+
+    # 4. 计算重构误差
+    diff = q_feats - reconstructed_feats
+    recon_error = torch.norm(diff, dim=1, p=2)
+
+    fg_scores = torch.sigmoid((recon_error - 0.5) / temp)
+    #
+    # return fg_scores  # [N, 1]
+    # --- 7. 归一化得分 (Min-Max) ---
+    # 将误差映射到 0-1
+    # e_min = recon_error.min()
+    # e_max = recon_error.max()
+    #
+    # fg_scores = (recon_error - e_min) / (e_max - e_min + 1e-8)
+
+    return fg_scores  # [N, 1]
+
 
 def filter_by_ref_keep_bboxes(
-    keep_bboxes,
-    keep_labels,
-    ref_keep_bboxes,
-    iou_threshold=0.5,
+        keep_bboxes,
+        keep_labels,
+        ref_keep_bboxes,
+        iou_threshold=0.5,
+        min_size=10,
 ):
-
     if keep_bboxes.numel() == 0:
         return keep_bboxes, keep_labels
 
-    bboxes = keep_bboxes[:, :4]   # [N, 4]
-    scores = keep_bboxes[:, 4]    # [N]
+    bboxes = keep_bboxes[:, :4]  # [N, 4]
+    scores = keep_bboxes[:, 4]  # [N]
 
     ref_bboxes = ref_keep_bboxes[:, :4]
 
     if ref_bboxes.numel() == 0:
         return keep_bboxes, keep_labels
 
-    ious = box_iou(bboxes, ref_bboxes)   # [N, M]
-    max_iou, _ = ious.max(dim=1)         # [N]
+    ious = box_iou(bboxes, ref_bboxes)  # [N, M]
+    max_iou, _ = ious.max(dim=1)  # [N]
 
     keep_mask = max_iou <= iou_threshold
 
@@ -60,6 +102,19 @@ def filter_by_ref_keep_bboxes(
             keep_labels.new_zeros((0,), dtype=keep_labels.dtype),
         )
 
+    # -------- 增加：过滤掉边长小于 10 的框 --------
+    # 假设 bboxes 格式为 [x1, y1, x2, y2]
+    widths = bboxes[:, 2] - bboxes[:, 0]
+    heights = bboxes[:, 3] - bboxes[:, 1]
+
+    # 生成掩码：宽度和高度都必须大于等于 10
+    keep_size_mask = (widths >= min_size) & (heights >= min_size)
+
+    # 过滤数据
+    bboxes = bboxes[keep_size_mask]
+    scores = scores[keep_size_mask]
+    labels = labels[keep_size_mask]
+
     # -------- Step 4: 按 score 排序 + 截断 --------
     order = scores.argsort(descending=True)
 
@@ -72,7 +127,7 @@ def filter_by_ref_keep_bboxes(
     return keep_bboxes, labels
 
 
-def class_agnostic_nms(bboxes, scores, iou_threshold=0.5, score_threshold=0.05, max_num=100):
+def class_agnostic_nms(bboxes, scores, iou_threshold=0.5, score_threshold=0.05, max_num=100, score_weight=1.0):
     scores, labels = scores.max(dim=1)
     # Step 1: 先按 score 排序
     score_sorted_idx = scores.argsort(descending=True)
@@ -91,18 +146,56 @@ def class_agnostic_nms(bboxes, scores, iou_threshold=0.5, score_threshold=0.05, 
     keep_bboxes = filtered_bboxes[keep]
     keep_scores = filtered_scores[keep].unsqueeze(-1)
     keep_labels = filtered_labels[keep]
+    keep_scores = keep_scores * score_weight
     keep_bboxes = torch.cat((keep_bboxes, keep_scores), dim=1)
 
     return keep_bboxes, keep_labels
 
 
-def sigmoid_activation(cls_score):
-    fine_cls_score = cls_score
-    score_classes = fine_cls_score.sigmoid()
-    score_neg = 1 - score_classes.sum(dim=1, keepdim=True)
-    score_neg = score_neg.clamp(min=0, max=1)
-    scores = torch.cat([score_classes, score_neg], dim=1)
-    return scores
+def class_agnostic_nms_with_size(bboxes, scores, min_size=20, iou_threshold=0.5, score_threshold=0.05, max_num=100,
+                                 score_weight=1.0):
+    scores, labels = scores.max(dim=1)
+
+    # Step 1: Sort by score
+    score_sorted_idx = scores.argsort(descending=True)
+    bboxes = bboxes[score_sorted_idx]
+    scores = scores[score_sorted_idx]
+    labels = labels[score_sorted_idx]
+
+    # Step 2: Preliminary score filter
+    keep_mask = scores > score_threshold
+    filtered_bboxes = bboxes[keep_mask]
+    filtered_scores = scores[keep_mask]
+    filtered_labels = labels[keep_mask]
+
+    # --- Added: Filter boxes with side length < 10 ---
+    if filtered_bboxes.numel() > 0:
+        ws = filtered_bboxes[:, 2] - filtered_bboxes[:, 0]
+        hs = filtered_bboxes[:, 3] - filtered_bboxes[:, 1]
+        # Keep only boxes where BOTH width and height >= 10
+        size_mask = (ws >= min_size) & (hs >= min_size)
+
+        filtered_bboxes = filtered_bboxes[size_mask]
+        filtered_scores = filtered_scores[size_mask]
+        filtered_labels = filtered_labels[size_mask]
+    # -----------------------------------------------
+
+    if filtered_bboxes.numel() == 0:
+        return torch.empty((0, 5), device=bboxes.device), torch.empty((0,), device=bboxes.device)
+
+    # Step 3: NMS
+    keep = nms(filtered_bboxes, filtered_scores, iou_threshold)
+    keep = keep[:max_num]
+
+    keep_bboxes = filtered_bboxes[keep]
+    keep_scores = filtered_scores[keep].unsqueeze(-1)
+    keep_labels = filtered_labels[keep]
+
+    # Apply score weight and concatenate
+    keep_scores = keep_scores * score_weight
+    keep_bboxes = torch.cat((keep_bboxes, keep_scores), dim=1)
+
+    return keep_bboxes, keep_labels
 
 
 def sigmoid_activation_without_bg(cls_score):
@@ -169,7 +262,22 @@ def get_dist_class_concept_onehot(concept_json, attribute_list, class_list):
     return onehot
 
 
-class ITOWConvFCBBoxHead(BBoxHead):
+def filter_bbox_iou_only(
+        fix_anchors,
+        fg_det_bboxes,
+        iou_thr=0.5
+):
+    iou = box_iou(fix_anchors, fg_det_bboxes)
+
+    remove_mask = (iou > iou_thr).any(dim=1)
+
+    keep_mask = ~remove_mask
+    keep_anchors = fix_anchors[keep_mask]
+
+    return keep_anchors, keep_mask
+
+
+class IPOWConvFCBBoxHead(BBoxHead):
     r"""More general bbox head, with shared conv and fc layers and two optional
     separated branches.
 
@@ -415,7 +523,7 @@ class ITOWConvFCBBoxHead(BBoxHead):
 
 
 @MODELS.register_module()
-class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
+class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
 
     def __init__(self, owod_cfg, fc_out_channels: int = 1024, *args, **kwargs) -> None:
         super().__init__(
@@ -451,9 +559,8 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
         self.focal_loss = FocalLoss()
 
     def loss_and_target_concept(self,
-                                concept_score: Tensor,
-                                concept_feat: Tensor,
                                 cls_score: Tensor,
+                                concept_score: Tensor,
                                 bbox_pred: Tensor,
                                 rois: Tensor,
                                 sampling_results: List[SamplingResult],
@@ -464,9 +571,8 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
         labels, label_weights, bbox_targets, bbox_weights = self.get_targets(
             sampling_results, rcnn_train_cfg, concat=concat)
         losses = self.loss_concept(
-            concept_score,
-            concept_feat,
             cls_score,
+            concept_score,
             bbox_pred,
             rois,
             labels, label_weights, bbox_targets, bbox_weights,
@@ -477,23 +583,27 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
 
     def predict_by_feat_concept(self,
                                 rois: Tuple[Tensor],
+                                cls_scores: Tuple[Tensor],
                                 concept_score: Tuple[Tensor],
                                 concept_feat: Tuple[Tensor],
-                                cls_scores: Tuple[Tensor],
+                                fix_concept_feat: Tuple[Tensor],
+                                fix_anchors_list: List[Tensor],
                                 bbox_preds: Tuple[Tensor],
                                 batch_img_metas: List[dict],
                                 rcnn_test_cfg: Optional[ConfigDict] = None,
                                 rescale: bool = False) -> InstanceList:
 
-        assert len(cls_scores) == len(bbox_preds)
+        assert len(concept_score) == len(bbox_preds)
         result_list = []
         for img_id in range(len(batch_img_metas)):
             img_meta = batch_img_metas[img_id]
             results = self._predict_by_feat_single_concept(
                 roi=rois[img_id],
+                cls_score=cls_scores[img_id],
                 concept_score=concept_score[img_id],
                 concept_feat=concept_feat[img_id],
-                cls_score=cls_scores[img_id],
+                fix_concept_feat=fix_concept_feat[img_id],
+                fix_anchors=fix_anchors_list[img_id],
                 bbox_pred=bbox_preds[img_id],
                 img_meta=img_meta,
                 rescale=rescale,
@@ -503,9 +613,8 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
         return result_list
 
     def loss_concept(self,
+                     cls_score,
                      concept_score: Tensor,
-                     concept_feat: Tensor,
-                     cls_score: Tensor,
                      bbox_pred: Tensor,
                      rois: Tensor,
                      labels: Tensor,
@@ -523,9 +632,9 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
         num_preds = cls_score.shape[0]
 
         # concept loss
-        if self.con_concept_label_onehot.device != cls_score.device:
-            self.con_concept_label_onehot = self.con_concept_label_onehot.to(cls_score.device)
-            self.dist_concept_label_onehot = self.dist_concept_label_onehot.to(cls_score.device)
+        if self.con_concept_label_onehot.device != concept_score.device:
+            self.con_concept_label_onehot = self.con_concept_label_onehot.to(concept_score.device)
+            self.dist_concept_label_onehot = self.dist_concept_label_onehot.to(concept_score.device)
 
         _, num_con_attributes = self.con_concept_label_onehot.shape
         _, num_dist_attributes = self.dist_concept_label_onehot.shape
@@ -601,64 +710,30 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
 
             losses['loss_cls_obj'] = loss_cls_obj_
 
-        #   bbox loss
-        if pos_inds.any():
-            if self.reg_decoded_bbox:
-                bbox_pred = self.bbox_coder.decode(rois[:, 1:], bbox_pred)
-                bbox_pred = get_box_tensor(bbox_pred)
-            if self.reg_class_agnostic:
-                pos_bbox_pred = bbox_pred.view(
-                    bbox_pred.size(0), -1)[pos_inds.type(torch.bool)]
-            else:
-                pos_bbox_pred = bbox_pred.view(
-                    bbox_pred.size(0), self.num_classes,
-                    -1)[pos_inds.type(torch.bool),
-                labels[pos_inds.type(torch.bool)]]
-            losses['loss_bbox'] = self.loss_bbox(
-                pos_bbox_pred,
-                bbox_targets[pos_inds.type(torch.bool)],
-                bbox_weights[pos_inds.type(torch.bool)],
-                avg_factor=bbox_targets.size(0),
-                reduction_override=reduction_override)
-        else:
-            losses['loss_bbox'] = bbox_pred[pos_inds].sum()
-
         return losses
 
     def _predict_by_feat_single_concept(
             self,
             roi: Tensor,
+            cls_score: Tensor,
             concept_score: Tensor,
             concept_feat: Tensor,
-            cls_score: Tensor,
+            fix_concept_feat: Tensor,
+            fix_anchors: Tensor,
             bbox_pred: Tensor,
             img_meta: dict,
             rescale: bool = False,
             rcnn_test_cfg: Optional[ConfigDict] = None) -> InstanceData:
-
-        obj_cls_score = cls_score[:, self.num_classes + 1:self.num_classes + 2]
-        cls_score = cls_score[:, :self.num_classes + 1]
-
-        # concept_feat
-        concept_feat = F.normalize(concept_feat, dim=1)
-        sim = torch.matmul(concept_feat, concept_feat.T)
-        sim.fill_diagonal_(0)  # 去掉自身相似度
-        bg_score = sim.mean(dim=1)
-        bg_score = (bg_score - bg_score.min()) / (bg_score.max() - bg_score.min() + 1e-6)
-        concept_fg_score = (1 - bg_score).unsqueeze(1)
-        concept_fg_score = sigmoid_activation(concept_fg_score)
 
         # concept score
         _, num_con_attributes = self.con_concept_label_onehot.shape
         _, num_dist_attributes = self.dist_concept_label_onehot.shape
 
         con_concept_score = concept_score[:, :num_con_attributes]
-        dist_concept_score = concept_score[:, num_con_attributes:]
         con_concept_score = sigmoid_activation_without_bg(con_concept_score)
-        dist_concept_score = sigmoid_activation_without_bg(dist_concept_score)
 
-        # obj_scores
-        obj_scores = sigmoid_activation(obj_cls_score)
+        # obj_cls_score = cls_score[:, self.num_classes + 1:self.num_classes + 2]
+        cls_score = cls_score[:, :self.num_classes + 1]
 
         results = InstanceData()
         if roi.shape[0] == 0:
@@ -712,43 +787,53 @@ class ITOWGMMShared2FCBBoxHead(ITOWConvFCBBoxHead):
             rcnn_test_cfg.max_per_img,
             box_dim=box_dim)
 
-        obj_nms_cfg = deepcopy(rcnn_test_cfg)
+        # concept bg feat
+        fg_det_bboxes = det_bboxes[det_bboxes[:, -1] > 0.5][:, :4]
+        fix_anchors_filter, fix_keep_mask = filter_bbox_iou_only(fix_anchors, fg_det_bboxes)
+        fix_anchors_feat = fix_concept_feat[fix_keep_mask]
+        bboxes_filter, bboxes_mask = filter_bbox_iou_only(bboxes, fg_det_bboxes)
+        bboxes_concept_feat = concept_feat[bboxes_mask]
+        fix_anchors_feat = torch.cat([fix_anchors_feat, bboxes_concept_feat], dim=0)
 
-        det_obj_bboxes, det_obj_labels = multiclass_nms(
-            bboxes,
-            obj_scores,
-            obj_nms_cfg.score_thr,
-            obj_nms_cfg.nms,
-            obj_nms_cfg.max_per_img,
-            box_dim=box_dim)
+        concept_fg_score = get_fg_score_pca_no_center(
+            fix_anchors_feat,
+            bboxes_concept_feat,
+            n_components=8
+        ).unsqueeze(-1)
+        det_bg_concept_bboxes, det_bg_concept_labels = class_agnostic_nms_with_size(bboxes_filter, concept_fg_score,
+                                                                                    min_size=10,
+                                                                                    iou_threshold=0.5,
+                                                                                    score_threshold=0.1,
+                                                                                    score_weight=0.8, max_num=200)
 
-        det_con_concept_bboxes, det_con_concept_labels = class_agnostic_nms(bboxes, con_concept_score)
-        det_dist_concept_bboxes, det_dist_concept_labels = class_agnostic_nms(bboxes, dist_concept_score)
+        det_con_concept_bboxes, det_con_concept_labels = class_agnostic_nms(bboxes, con_concept_score, max_num=80,
+                                                                            iou_threshold=0.4)
 
-        det_obj_labels = det_obj_labels + self.num_classes
         det_con_concept_labels = det_con_concept_labels + self.num_classes
-        det_dist_concept_labels = det_dist_concept_labels + self.num_classes
+        det_bg_concept_labels = det_bg_concept_labels + self.num_classes
 
-        # 利用Con去filter dist 与 obj
-        det_obj_bboxes, det_obj_labels = filter_by_ref_keep_bboxes(
-            det_obj_bboxes,
-            det_obj_labels,
+        det_bg_concept_bboxes, det_bg_concept_labels = filter_by_ref_keep_bboxes(
+            det_bg_concept_bboxes,
+            det_bg_concept_labels,
             det_con_concept_bboxes,
             iou_threshold=0.5,
         )
 
-        det_dist_concept_bboxes, det_dist_concept_labels = filter_by_ref_keep_bboxes(
-            det_dist_concept_bboxes,
-            det_dist_concept_labels,
-            det_con_concept_bboxes,
-            iou_threshold=0.8,
-        )
+        unknown_bboxes = torch.cat(
+            [det_con_concept_bboxes, det_bg_concept_bboxes],
+            dim=0)
+        unknown_labels = torch.cat(
+            [det_con_concept_labels, det_bg_concept_labels],
+            dim=0)
+
+        unknown_bboxes = unknown_bboxes[:100]
+        unknown_labels = unknown_labels[:100]
 
         combined_bboxes = torch.cat(
-            [det_bboxes, det_obj_bboxes, det_con_concept_bboxes, det_dist_concept_bboxes],
+            [det_bboxes, unknown_bboxes],
             dim=0)
         combined_labels = torch.cat(
-            [det_labels, det_obj_labels, det_con_concept_labels, det_dist_concept_labels],
+            [det_labels, unknown_labels],
             dim=0)
 
         results.bboxes = combined_bboxes[:, :-1]

@@ -10,8 +10,7 @@ from .roi_extractors import (BaseRoIExtractor, GenericRoIExtractor,
                              SingleRoIExtractor)
 from .shared_heads import ResLayer
 from .standard_roi_head import StandardRoIHead
-from .itow_roi_head import ITOWRoIHead
-from .itow_roi_head_gmm import ITOWGMMRoIHead
+from .ipow_roi_head import IPOWRoIHead
 
 __all__ = [
     'BaseRoIHead', 'ResLayer', 'BBoxHead',
@@ -21,5 +20,5 @@ __all__ = [
     'MaskIoUHead', 'BaseRoIExtractor', 'GenericRoIExtractor',
     'SingleRoIExtractor', 'MaskPointHead',
     'CoarseMaskHead', 'SCNetMaskHead', 'SCNetSemanticHead',
-    'FeatureRelayHead', 'GlobalContextHead', 'ITOWRoIHead', 'ITOWGMMRoIHead'
+    'FeatureRelayHead', 'GlobalContextHead', 'IPOWRoIHead'
 ]

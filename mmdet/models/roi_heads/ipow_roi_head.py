@@ -1,5 +1,4 @@
 # Copyright (c) OpenMMLab. All rights reserved.
-
 from typing import List, Tuple
 
 import numpy as np
@@ -18,13 +17,11 @@ from ..utils import empty_instances, unpack_gt_instances
 
 
 def orthogonal_loss(con_concept_feat, dist_concept_feat):
-    dot = (con_concept_feat @ dist_concept_feat.T).diagonal()
-    con_norm = con_concept_feat.norm(dim=1)
-    dist_norm = dist_concept_feat.norm(dim=1)
-    cos_sim = dot / (con_norm * dist_norm + 1e-6)
-    loss = (cos_sim ** 2).mean()
-    return loss
-
+    # con_concept_feat, dist_concept_feat: [N, D]
+    cos_sim = torch.nn.functional.cosine_similarity(
+        con_concept_feat, dist_concept_feat, dim=1
+    )
+    return (cos_sim ** 2).mean()
 
 class ContrastiveHead(BaseModule):
 
@@ -45,7 +42,7 @@ class ContrastiveHead(BaseModule):
         w = F.normalize(w, dim=-1, p=2)  # [K, 512]
         logits = torch.matmul(x, w.T)  # [N, K]
         logits = logits * self.logit_scale.exp() + self.bias
-        return logits, x
+        return logits
 
 
 class ConceptContrastiveHead(BaseModule):
@@ -57,7 +54,6 @@ class ConceptContrastiveHead(BaseModule):
     def __init__(self,
                  init_cfg: OptConfigType = None,
                  use_einsum: bool = True) -> None:
-
         super().__init__(init_cfg=init_cfg)
 
         self.bias = nn.Parameter(torch.zeros([]))
@@ -82,11 +78,18 @@ class ConceptContrastiveHead(BaseModule):
         logits = logits * self.logit_scale.exp() + self.bias
         return logits, x
 
+def bbox2roi_fix(fix_anchors_list) -> Tensor:
+    rois_list = []
+    for img_id, fix_anchors in enumerate(fix_anchors_list):
+        img_inds = fix_anchors.new_full((fix_anchors.size(0), 1), img_id)
+        rois = torch.cat([img_inds, fix_anchors], dim=-1)
+        rois_list.append(rois)
+    rois = torch.cat(rois_list, 0)
+    return rois
 
 @MODELS.register_module()
-class ITOWGMMRoIHead(BaseRoIHead):
+class IPOWRoIHead(BaseRoIHead):
     """Simplest base roi head including one bbox head and one mask head."""
-
     def __init__(self,
                  *args,
                  **kwargs) -> None:
@@ -165,15 +168,23 @@ class ITOWGMMRoIHead(BaseRoIHead):
 
         return losses
 
-    def _bbox_forward(self, x: Tuple[Tensor], text_feat, concept_embedding, rois: Tensor):
+    def _bbox_forward(self, x: Tuple[Tensor], text_feat, concept_embedding, rois: Tensor, fixed_rois):
 
         bbox_feats = self.bbox_roi_extractor(
             x[:self.bbox_roi_extractor.num_inputs], rois)
         if self.with_shared_head:
             bbox_feats = self.shared_head(bbox_feats)
-        cls_score, concept_feat, bbox_pred = self.bbox_head(bbox_feats)
+        cls_feat, concept_feat, bbox_pred = self.bbox_head(bbox_feats)
+        cls_score = self.cls_contrasts_head(cls_feat, text_feat)
 
-        cls_score, cls_score_feat = self.cls_contrasts_head(cls_score, text_feat)
+        fix_concept_feat = None
+        # fix concept
+        if fixed_rois is not None:
+            with torch.no_grad():
+                fix_bbox_feats = self.bbox_roi_extractor(x[:self.bbox_roi_extractor.num_inputs], fixed_rois)
+                if self.with_shared_head:
+                    fix_bbox_feats = self.shared_head(fix_bbox_feats)
+                _, fix_concept_feat, _ = self.bbox_head(fix_bbox_feats)
 
         con_concept_embedding = concept_embedding[0]
         dist_concept_embedding = concept_embedding[1]
@@ -181,31 +192,30 @@ class ITOWGMMRoIHead(BaseRoIHead):
         con_concept_score, con_concept_feat = self.con_concept_contrasts_head(concept_feat, con_concept_embedding)
         dist_concept_score, dist_concept_feat = self.dist_concept_contrasts_head(concept_feat, dist_concept_embedding)
 
-        concept_feat = F.normalize(concept_feat, dim=-1, p=2)  # [N, 36, 512]
-
         concept_score = torch.cat([con_concept_score, dist_concept_score], dim=-1)
 
         # concept_orth_loss
         concept_orth_loss = orthogonal_loss(con_concept_feat, dist_concept_feat)
 
         bbox_results = dict(
+            cls_score = cls_score,
             concept_score=concept_score,
             concept_feat=concept_feat,
-            cls_score=cls_score, bbox_pred=bbox_pred, bbox_feats=bbox_feats)
+            fix_concept_feat=fix_concept_feat, bbox_pred=bbox_pred, bbox_feats=bbox_feats)
         return bbox_results, concept_orth_loss
 
     def bbox_loss(self, x: Tuple[Tensor],
-                  text_feat: Tensor,
+                  text_feat,
                   concept_embedding: Tensor,
                   sampling_results: List[SamplingResult]) -> dict:
 
         rois = bbox2roi([res.priors for res in sampling_results])
-        bbox_results, concept_orth_loss = self._bbox_forward(x, text_feat, concept_embedding, rois)
+
+        bbox_results, concept_orth_loss = self._bbox_forward(x, text_feat, concept_embedding, rois, fixed_rois=None)
 
         bbox_loss_and_target = self.bbox_head.loss_and_target_concept(
-            concept_score=bbox_results['concept_score'],
-            concept_feat=bbox_results['concept_feat'],
             cls_score=bbox_results['cls_score'],
+            concept_score=bbox_results['concept_score'],
             bbox_pred=bbox_results['bbox_pred'],
             rois=rois,
             sampling_results=sampling_results,
@@ -222,11 +232,13 @@ class ITOWGMMRoIHead(BaseRoIHead):
                      concept_embedding,
                      batch_img_metas: List[dict],
                      rpn_results_list: InstanceList,
+                     fix_anchors_list,
                      rcnn_test_cfg: ConfigType,
                      rescale: bool = False) -> InstanceList:
 
         proposals = [res.bboxes for res in rpn_results_list]
         rois = bbox2roi(proposals)
+        fixed_rois = bbox2roi_fix(fix_anchors_list)
 
         if rois.shape[0] == 0:
             return empty_instances(
@@ -237,18 +249,24 @@ class ITOWGMMRoIHead(BaseRoIHead):
                 num_classes=self.bbox_head.num_classes,
                 score_per_cls=rcnn_test_cfg is None)
 
-        bbox_results, _ = self._bbox_forward(x, text_feat, concept_embedding, rois)
+        bbox_results, _ = self._bbox_forward(x, text_feat, concept_embedding, rois, fixed_rois)
 
         # split batch bbox prediction back to each image
+        cls_score = bbox_results['cls_score']
         concept_feat = bbox_results['concept_feat']
+        fix_concept_feat = bbox_results['fix_concept_feat']
+        concept_feat = F.normalize(concept_feat, dim=-1, p=2)  # [N, 36, 512]
+        fix_concept_feat = F.normalize(fix_concept_feat, dim=-1, p=2)
         concept_score = bbox_results['concept_score']
-        cls_scores = bbox_results['cls_score']
         bbox_preds = bbox_results['bbox_pred']
         num_proposals_per_img = tuple(len(p) for p in proposals)
+        num_fix_anchor_per_img = tuple(len(p) for p in fix_anchors_list)
         rois = rois.split(num_proposals_per_img, 0)
-        cls_scores = cls_scores.split(num_proposals_per_img, 0)
         concept_feat = concept_feat.split(num_proposals_per_img, 0)
+        cls_score = cls_score.split(num_proposals_per_img, 0)
+        fix_concept_feat = fix_concept_feat.split(num_fix_anchor_per_img, 0)
         concept_score = concept_score.split(num_proposals_per_img, 0)
+
         # some detector with_reg is False, bbox_preds will be None
         if bbox_preds is not None:
             # TODO move this to a sabl_roi_head
@@ -259,13 +277,15 @@ class ITOWGMMRoIHead(BaseRoIHead):
                 bbox_preds = self.bbox_head.bbox_pred_split(
                     bbox_preds, num_proposals_per_img)
         else:
-            bbox_preds = (None,) * len(proposals)
+            bbox_preds = (None, ) * len(proposals)
 
         result_list = self.bbox_head.predict_by_feat_concept(
             rois=rois,
+            cls_scores = cls_score,
             concept_score=concept_score,
             concept_feat=concept_feat,
-            cls_scores=cls_scores,
+            fix_concept_feat=fix_concept_feat,
+            fix_anchors_list=fix_anchors_list,
             bbox_preds=bbox_preds,
             batch_img_metas=batch_img_metas,
             rcnn_test_cfg=rcnn_test_cfg,
@@ -277,6 +297,7 @@ class ITOWGMMRoIHead(BaseRoIHead):
                 text_feat,
                 concept_embedding,
                 rpn_results_list: InstanceList,
+                fix_anchors_list,
                 batch_data_samples: SampleList,
                 rescale: bool = False) -> InstanceList:
 
@@ -291,6 +312,7 @@ class ITOWGMMRoIHead(BaseRoIHead):
             concept_embedding,
             batch_img_metas,
             rpn_results_list,
+            fix_anchors_list,
             rcnn_test_cfg=self.test_cfg,
             rescale=bbox_rescale)
 

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="PublishConfigData" autoUpload="Always" serverName="root@ackcs-00gjhh2c@ssh.bj8.bz1.paratera.com:2233 password" remoteFilesAllowedToDisappearOnAutoupload="false">
+    <serverData>
+      <paths name="paratrera">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/shared-nvme/IPOW" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="root@ackcs-00gjhh2c@ssh.bj8.bz1.paratera.com:2233 password">
+        <serverdata>
+          <mappings>
+            <mapping deploy="/root/shared-nvme/IPOW" local="$PROJECT_DIR$" />
+          </mappings>
+        </serverdata>
+      </paths>
+    </serverData>
+    <option name="myAutoUpload" value="ALWAYS" />
+  </component>
+</project>

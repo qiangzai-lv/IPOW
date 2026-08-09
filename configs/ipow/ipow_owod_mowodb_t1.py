@@ -3,24 +3,23 @@ _base_ = [
     '../_base_/schedules/schedule_1x.py', '../_base_/default_runtime.py'
 ]
 
-num_classes = 40
+num_classes = 20
 rpn_proposal_nums = 800
 
 backbone_checkpoint = 'https://download.pytorch.org/models/resnet50-11ad3fa6.pth'
 
 owod_cfg = dict(
-    known_text_embeddings_path='pretrain/embeddings/mowod_t2_embeddings.pt',
-    con_concept_feat_path='concept_dir/MOWODB_t2_share_embeddings.pth',
-    dist_concept_feat_path='concept_dir/MOWODB_t2_dist_embeddings.pth',
-    randm_gmm_path='pretrain/mowodb_t1_class_gmm.pkl',
+    known_text_embeddings_path='embeddings/cls_embeddings/mowod_t1_embeddings.pt',
+    con_concept_feat_path='embeddings/concept_embeddings/MOWODB_t1_share_embeddings.pth',
+    dist_concept_feat_path='embeddings/concept_embeddings/MOWODB_t1_dist_embeddings.pth',
+    randm_gmm_path='embeddings/gmm_rpn/mowodb_t1_class_gmm.pkl',
     gmm_n_samples=120,
-    gmm_iou_thresh=0.7,
-    star_soft_epoch=12
+    gmm_iou_thresh=0.7
 )
 
 # model settings
 model = dict(
-    type='FasterITOW',
+    type='FasterIPOW',
     data_preprocessor=dict(
         type='DetDataPreprocessor',
         mean=[123.675, 116.28, 103.53],
@@ -60,14 +59,14 @@ model = dict(
             type='CrossEntropyLoss', use_sigmoid=True, loss_weight=1.0),
         loss_bbox=dict(type='L1Loss', loss_weight=1.0)),
     roi_head=dict(
-        type='ITOWRoIHead',
+        type='IPOWRoIHead',
         bbox_roi_extractor=dict(
             type='SingleRoIExtractor',
             roi_layer=dict(type='RoIAlign', output_size=7, sampling_ratio=0),
             out_channels=256,
             featmap_strides=[4, 8, 16, 32]),
         bbox_head=dict(
-            type='ITOWShared2FCBBoxHead',
+            type='IPOWShared2FCBBoxHead',
             owod_cfg=owod_cfg,
             in_channels=256,
             fc_out_channels=1024,
@@ -136,8 +135,6 @@ model = dict(
 # `lr` and `weight_decay` have been searched to be optimal.
 optim_wrapper = dict(
     type='OptimWrapper',
-    optimizer=dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001),
-    paramwise_cfg=dict(custom_keys={'backbone': dict(lr_mult=0.1, decay_mult=1.0)})
-)
+    optimizer=dict(type='SGD', lr=0.02, momentum=0.9, weight_decay=0.0001))
 
-find_unused_parameters = True
+find_unused_parameters=True

@@ -2,10 +2,9 @@
 from .bbox_head import BBoxHead
 from .convfc_bbox_head import (ConvFCBBoxHead, Shared2FCBBoxHead,
                                Shared4Conv1FCBBoxHead)
-from .itow_convfc_bbox_head import ITOWShared2FCBBoxHead
-from .itow_convfc_bbox_head_gmm import ITOWGMMShared2FCBBoxHead
+from .ipow_convfc_bbox_head import IPOWShared2FCBBoxHead
 
 __all__ = [
-    'BBoxHead', 'ConvFCBBoxHead', 'Shared2FCBBoxHead', 'ITOWGMMShared2FCBBoxHead',
-    'Shared4Conv1FCBBoxHead', 'ITOWShared2FCBBoxHead'
+    'BBoxHead', 'ConvFCBBoxHead', 'Shared2FCBBoxHead', 'IPOWShared2FCBBoxHead',
+    'Shared4Conv1FCBBoxHead'
 ]

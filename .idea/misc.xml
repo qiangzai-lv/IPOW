@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Black">
+    <option name="sdkName" value="SSH (sftp://root@xj-member.bitahub.com:42011/opt/conda/bin/python)" />
+  </component>
+  <component name="ProjectRootManager" version="2" project-jdk-name="SSH (sftp://root@ackcs-00gjhh2c@ssh.bj8.bz1.paratera.com:2233/root/.conda/envs/mmdet/bin/python)" project-jdk-type="Python SDK" />
+</project>

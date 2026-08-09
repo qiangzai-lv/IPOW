@@ -1,0 +1,652 @@
+{
+  "wheels": [
+    "aeroplane",
+    "bicycle",
+    "bus",
+    "car",
+    "motorbike",
+    "train"
+  ],
+  "metal parts": [
+    "aeroplane",
+    "bicycle",
+    "boat",
+    "bus",
+    "car",
+    "motorbike",
+    "train",
+    "tvmonitor"
+  ],
+  "handlebars": [
+    "bicycle",
+    "motorbike"
+  ],
+  "frame": [
+    "bicycle",
+    "chair",
+    "diningtable",
+    "sofa",
+    "tvmonitor"
+  ],
+  "reflective surfaces": [
+    "bottle",
+    "car"
+  ],
+  "wings": [
+    "aeroplane",
+    "bird"
+  ],
+  "beak": [
+    "bird"
+  ],
+  "tail": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "sheep"
+  ],
+  "fuselage-like body": [
+    "aeroplane",
+    "bird"
+  ],
+  "feathers or smooth surface": [
+    "bird",
+    "bottle"
+  ],
+  "hull": [
+    "boat",
+    "train"
+  ],
+  "window": [
+    "aeroplane",
+    "bus",
+    "car",
+    "train"
+  ],
+  "propeller": [
+    "aeroplane",
+    "boat"
+  ],
+  "navigation light": [
+    "aeroplane",
+    "boat"
+  ],
+  "symmetrical": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "elongated": [
+    "aeroplane",
+    "bottle",
+    "bus",
+    "car",
+    "cow",
+    "horse",
+    "motorbike",
+    "person",
+    "sheep",
+    "train"
+  ],
+  "hollow": [
+    "bottle",
+    "boat"
+  ],
+  "cylindrical": [
+    "bottle",
+    "pottedplant"
+  ],
+  "doors": [
+    "bus",
+    "car"
+  ],
+  "rectangular shape": [
+    "bottle",
+    "bus",
+    "car",
+    "diningtable",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "headlights": [
+    "bus",
+    "car"
+  ],
+  "color": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "size": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "texture": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "outline": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "flat": [
+    "diningtable",
+    "tvmonitor"
+  ],
+  "man-made": [
+    "aeroplane",
+    "bicycle",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "chair",
+    "diningtable",
+    "motorbike",
+    "pottedplant",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "contour": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "edges": [
+    "aeroplane",
+    "bicycle",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "chair",
+    "diningtable",
+    "motorbike",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "metallic surface": [
+    "aeroplane",
+    "bicycle",
+    "boat",
+    "bus",
+    "car",
+    "motorbike",
+    "train"
+  ],
+  "rectangular windows": [
+    "bus",
+    "car",
+    "train",
+    "tvmonitor"
+  ],
+  "screen-like": [
+    "tvmonitor",
+    "diningtable"
+  ],
+  "legs": [
+    "bird",
+    "cat",
+    "chair",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep",
+    "sofa"
+  ],
+  "head": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "body": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "seats": [
+    "bus",
+    "car",
+    "chair",
+    "sofa",
+    "train"
+  ],
+  "handlebars/steering wheel": [
+    "bicycle",
+    "motorbike"
+  ],
+  "two eyes": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "two front limbs/structures": [
+    "person",
+    "cat",
+    "dog",
+    "horse",
+    "cow",
+    "sheep",
+    "bird"
+  ],
+  "two rear limbs/structures": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "neck-like extension": [
+    "bird",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "tires": [
+    "bicycle",
+    "bus",
+    "car",
+    "motorbike",
+    "train"
+  ],
+  "brakes": [
+    "bicycle",
+    "bus",
+    "car",
+    "motorbike",
+    "train"
+  ],
+  "black": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "nose": [
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "mouth": [
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "fur/feathers": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "limbs": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "green": [
+    "bottle",
+    "pottedplant"
+  ],
+  "brown": [
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "organic": [
+    "bird",
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "irregular": [
+    "bird",
+    "cow"
+  ],
+  "gray": [
+    "aeroplane",
+    "bottle",
+    "bus",
+    "car",
+    "cow",
+    "diningtable",
+    "horse",
+    "motorbike",
+    "person",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "wooden": [
+    "chair",
+    "diningtable"
+  ],
+  "white": [
+    "bottle",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "curved": [
+    "bottle",
+    "bird"
+  ],
+  "plastic material": [
+    "bottle",
+    "tvmonitor"
+  ],
+  "height": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "surface finish": [
+    "bottle",
+    "tvmonitor"
+  ],
+  "opaque": [
+    "aeroplane",
+    "bicycle",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "shiny": [
+    "bottle",
+    "car"
+  ],
+  "upholstered material": [
+    "chair",
+    "sofa"
+  ],
+  "multiple legs or supports": [
+    "chair",
+    "diningtable",
+    "sofa"
+  ],
+  "edged": [
+    "bottle",
+    "tvmonitor"
+  ],
+  "license plate": [
+    "bus",
+    "car"
+  ],
+  "ears": [
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "four legs": [
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "sheep"
+  ],
+  "back": [
+    "chair",
+    "sofa"
+  ],
+  "width": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "backrest": [
+    "chair",
+    "sofa"
+  ],
+  "cushions": [
+    "chair",
+    "sofa"
+  ],
+  "hooves": [
+    "cow",
+    "horse",
+    "sheep"
+  ],
+  "horns": [
+    "cow",
+    "sheep"
+  ],
+  "fabric covering": [
+    "chair",
+    "sofa"
+  ],
+  "length": [
+    "aeroplane",
+    "bus",
+    "car",
+    "train"
+  ],
+  "saddle": [
+    "bicycle",
+    "horse"
+  ],
+  "hair": [
+    "cat",
+    "cow",
+    "dog",
+    "horse",
+    "person",
+    "sheep"
+  ],
+  "black details": [
+    "aeroplane",
+    "bicycle",
+    "bird",
+    "boat",
+    "bottle",
+    "bus",
+    "car",
+    "cat",
+    "chair",
+    "cow",
+    "diningtable",
+    "dog",
+    "horse",
+    "motorbike",
+    "person",
+    "pottedplant",
+    "sheep",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ],
+  "multiple connected parts": [
+    "aeroplane",
+    "bicycle",
+    "bus",
+    "car",
+    "chair",
+    "diningtable",
+    "motorbike",
+    "sofa",
+    "train",
+    "tvmonitor"
+  ]
+}

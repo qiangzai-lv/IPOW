@@ -1,0 +1,1332 @@
+{
+  "aeroplane & bicycle": [
+    "wheels",
+    "metal parts",
+    "handlebars",
+    "frame",
+    "reflective surfaces"
+  ],
+  "aeroplane & bird": [
+    "wings",
+    "beak",
+    "tail",
+    "fuselage-like body",
+    "feathers or smooth surface"
+  ],
+  "aeroplane & boat": [
+    "hull",
+    "window",
+    "propeller",
+    "metal body",
+    "navigation light"
+  ],
+  "aeroplane & bottle": [
+    "symmetrical",
+    "elongated",
+    "smooth",
+    "hollow",
+    "cylindrical"
+  ],
+  "aeroplane & bus": [
+    "wheels",
+    "windows",
+    "doors",
+    "rectangular shape",
+    "metal body"
+  ],
+  "aeroplane & car": [
+    "wheels",
+    "windows",
+    "doors",
+    "metal body",
+    "headlights"
+  ],
+  "aeroplane & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "aeroplane & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "aeroplane & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "aeroplane & diningtable": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "symmetrical",
+    "man-made"
+  ],
+  "aeroplane & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "aeroplane & horse": [
+    "symmetry",
+    "contour",
+    "texture",
+    "color",
+    "shape"
+  ],
+  "aeroplane & motorbike": [
+    "wheels",
+    "metal body",
+    "handlebars",
+    "headlights",
+    "mirrors"
+  ],
+  "aeroplane & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "aeroplane & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "aeroplane & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "aeroplane & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "aeroplane & train": [
+    "metallic surface",
+    "rectangular windows",
+    "elongated body",
+    "wheels",
+    "doors"
+  ],
+  "aeroplane & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "metallic",
+    "screen-like"
+  ],
+  "bicycle & bird": [
+    "wings",
+    "legs",
+    "head",
+    "body",
+    "color"
+  ],
+  "bicycle & boat": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "bicycle & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bicycle & bus": [
+    "wheels",
+    "metal frame",
+    "windows",
+    "seats",
+    "doors"
+  ],
+  "bicycle & car": [
+    "wheels",
+    "metal frame",
+    "handlebars/steering wheel",
+    "seats",
+    "lights"
+  ],
+  "bicycle & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bicycle & chair": [
+    "color",
+    "material",
+    "shape",
+    "size",
+    "texture"
+  ],
+  "bicycle & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bicycle & diningtable": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "bicycle & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bicycle & horse": [
+    "two eyes",
+    "elongated body",
+    "two front limbs/structures",
+    "two rear limbs/structures",
+    "neck-like extension"
+  ],
+  "bicycle & motorbike": [
+    "two wheels",
+    "handlebars",
+    "seat",
+    "frame",
+    "tires"
+  ],
+  "bicycle & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bicycle & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "bicycle & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "bicycle & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "bicycle & train": [
+    "wheels",
+    "metal frame",
+    "handlebars",
+    "brakes",
+    "seats"
+  ],
+  "bicycle & tvmonitor": [
+    "rectangular",
+    "metallic",
+    "black",
+    "flat",
+    "screen-like"
+  ],
+  "bird & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "bird & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & cat": [
+    "eyes",
+    "nose",
+    "mouth",
+    "fur/feathers",
+    "limbs"
+  ],
+  "bird & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & cow": [
+    "eyes",
+    "nose",
+    "mouth",
+    "legs",
+    "tail"
+  ],
+  "bird & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bird & dog": [
+    "eyes",
+    "nose",
+    "mouth",
+    "legs",
+    "tail"
+  ],
+  "bird & horse": [
+    "eyes",
+    "legs",
+    "tail",
+    "head",
+    "body"
+  ],
+  "bird & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & person": [
+    "head",
+    "eyes",
+    "legs",
+    "feet",
+    "body"
+  ],
+  "bird & pottedplant": [
+    "green",
+    "brown",
+    "textured",
+    "organic",
+    "irregular"
+  ],
+  "bird & sheep": [
+    "eyes",
+    "legs",
+    "head",
+    "body",
+    "tail"
+  ],
+  "bird & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "bird & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bird & tvmonitor": [
+    "rectangular",
+    "black",
+    "gray",
+    "smooth",
+    "flat"
+  ],
+  "boat & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "boat & bus": [
+    "wheels",
+    "windows",
+    "doors",
+    "lights",
+    "metal body"
+  ],
+  "boat & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "boat & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "boat & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "boat & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "boat & diningtable": [
+    "rectangular",
+    "flat",
+    "wooden",
+    "brown",
+    "smooth"
+  ],
+  "boat & dog": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "symmetry"
+  ],
+  "boat & horse": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "boat & motorbike": [
+    "wheels",
+    "handlebars",
+    "seat",
+    "metal body",
+    "headlight"
+  ],
+  "boat & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "boat & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "boat & sheep": [
+    "white",
+    "curved",
+    "textured",
+    "irregular shape",
+    "organic form"
+  ],
+  "boat & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "boat & train": [
+    "windows",
+    "doors",
+    "wheels",
+    "lights",
+    "metal surfaces"
+  ],
+  "boat & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "screen or window",
+    "plastic material",
+    "black color"
+  ],
+  "bottle & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bottle & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "reflectivity"
+  ],
+  "bottle & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bottle & chair": [
+    "color",
+    "shape",
+    "height",
+    "material",
+    "texture"
+  ],
+  "bottle & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bottle & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "surface finish"
+  ],
+  "bottle & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bottle & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bottle & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bottle & person": [
+    "color",
+    "shape",
+    "height",
+    "texture",
+    "symmetry"
+  ],
+  "bottle & pottedplant": [
+    "green",
+    "tall",
+    "cylindrical",
+    "smooth",
+    "opaque"
+  ],
+  "bottle & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bottle & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bottle & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bottle & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "shiny",
+    "hard"
+  ],
+  "bus & car": [
+    "wheels",
+    "windows",
+    "doors",
+    "headlights",
+    "body"
+  ],
+  "bus & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bus & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bus & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "bus & diningtable": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "hard",
+    "large"
+  ],
+  "bus & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bus & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "bus & motorbike": [
+    "wheels",
+    "headlights",
+    "handlebars",
+    "metal body",
+    "mirrors"
+  ],
+  "bus & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "bus & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "bus & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "bus & sofa": [
+    "rectangular shape",
+    "flat surface",
+    "upholstered material",
+    "multiple legs or supports",
+    "symmetrical design"
+  ],
+  "bus & train": [
+    "wheels",
+    "windows",
+    "doors",
+    "metal body",
+    "seats"
+  ],
+  "bus & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "colored",
+    "edged"
+  ],
+  "car & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "car & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "car & cow": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "symmetry"
+  ],
+  "car & diningtable": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "car & dog": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "symmetry"
+  ],
+  "car & horse": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "symmetry"
+  ],
+  "car & motorbike": [
+    "wheels",
+    "headlights",
+    "handlebars",
+    "mirrors",
+    "license plate"
+  ],
+  "car & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "car & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "car & sheep": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "outline"
+  ],
+  "car & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "car & train": [
+    "wheels",
+    "windows",
+    "doors",
+    "lights",
+    "metal body"
+  ],
+  "car & tvmonitor": [
+    "rectangular",
+    "black",
+    "smooth",
+    "shiny",
+    "flat"
+  ],
+  "cat & chair": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "cat & cow": [
+    "eyes",
+    "ears",
+    "tail",
+    "fur",
+    "legs"
+  ],
+  "cat & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "cat & dog": [
+    "fur",
+    "tail",
+    "ears",
+    "eyes",
+    "nose"
+  ],
+  "cat & horse": [
+    "fur",
+    "eyes",
+    "ears",
+    "tail",
+    "legs"
+  ],
+  "cat & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "cat & person": [
+    "eyes",
+    "nose",
+    "mouth",
+    "ears",
+    "fur/hair"
+  ],
+  "cat & pottedplant": [
+    "green",
+    "brown",
+    "textured",
+    "irregular shape",
+    "organic"
+  ],
+  "cat & sheep": [
+    "fur",
+    "eyes",
+    "ears",
+    "tail",
+    "legs"
+  ],
+  "cat & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "cat & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "cat & tvmonitor": [
+    "rectangular",
+    "black",
+    "gray",
+    "smooth",
+    "shiny"
+  ],
+  "chair & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "chair & diningtable": [
+    "wood grain",
+    "rectangular shape",
+    "four legs",
+    "flat surface",
+    "brown color"
+  ],
+  "chair & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "symmetry"
+  ],
+  "chair & horse": [
+    "legs",
+    "back",
+    "height",
+    "color",
+    "texture"
+  ],
+  "chair & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "chair & person": [
+    "color",
+    "height",
+    "width",
+    "texture",
+    "shape"
+  ],
+  "chair & pottedplant": [
+    "color",
+    "texture",
+    "height",
+    "width",
+    "shape"
+  ],
+  "chair & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "chair & sofa": [
+    "legs",
+    "seat",
+    "backrest",
+    "upholstery",
+    "cushions"
+  ],
+  "chair & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "chair & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "black",
+    "plastic"
+  ],
+  "cow & diningtable": [
+    "rectangular",
+    "brown",
+    "wooden",
+    "smooth",
+    "solid"
+  ],
+  "cow & dog": [
+    "fur",
+    "eyes",
+    "nose",
+    "ears",
+    "tail"
+  ],
+  "cow & horse": [
+    "four legs",
+    "hooves",
+    "tail",
+    "fur",
+    "eyes"
+  ],
+  "cow & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "cow & person": [
+    "eyes",
+    "nose",
+    "mouth",
+    "ears",
+    "legs"
+  ],
+  "cow & pottedplant": [
+    "green",
+    "brown",
+    "textured",
+    "organic",
+    "irregular shape"
+  ],
+  "cow & sheep": [
+    "four legs",
+    "hooves",
+    "fur",
+    "tail",
+    "horns"
+  ],
+  "cow & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "cow & train": [
+    "rectangular shape",
+    "metallic surface",
+    "black color",
+    "wheels",
+    "windows"
+  ],
+  "cow & tvmonitor": [
+    "rectangular",
+    "black",
+    "white",
+    "smooth",
+    "shiny"
+  ],
+  "diningtable & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "height"
+  ],
+  "diningtable & horse": [
+    "brown",
+    "four legs",
+    "smooth",
+    "curved",
+    "textured"
+  ],
+  "diningtable & motorbike": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "diningtable & person": [
+    "color",
+    "texture",
+    "shape",
+    "height",
+    "width"
+  ],
+  "diningtable & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "height",
+    "surface"
+  ],
+  "diningtable & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "diningtable & sofa": [
+    "rectangular shape",
+    "wooden material",
+    "fabric covering",
+    "four legs",
+    "flat surface"
+  ],
+  "diningtable & train": [
+    "rectangular",
+    "metallic",
+    "smooth",
+    "long",
+    "hard"
+  ],
+  "diningtable & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "hard",
+    "colored"
+  ],
+  "dog & horse": [
+    "fur",
+    "tail",
+    "eyes",
+    "ears",
+    "legs"
+  ],
+  "dog & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "dog & person": [
+    "eyes",
+    "nose",
+    "mouth",
+    "ears",
+    "limbs"
+  ],
+  "dog & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "height"
+  ],
+  "dog & sheep": [
+    "four legs",
+    "fur",
+    "tail",
+    "eyes",
+    "ears"
+  ],
+  "dog & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "dog & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "length"
+  ],
+  "dog & tvmonitor": [
+    "rectangular",
+    "black",
+    "gray",
+    "shiny",
+    "smooth"
+  ],
+  "horse & motorbike": [
+    "wheels",
+    "handlebars",
+    "saddle",
+    "elongated body shape",
+    "headlight"
+  ],
+  "horse & person": [
+    "head",
+    "eyes",
+    "legs",
+    "hair",
+    "skin"
+  ],
+  "horse & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "height",
+    "width"
+  ],
+  "horse & sheep": [
+    "four legs",
+    "hooves",
+    "fur",
+    "tail",
+    "head"
+  ],
+  "horse & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "horse & train": [
+    "elongated shape",
+    "rectangular windows",
+    "metallic surfaces",
+    "wheels",
+    "symmetrical sides"
+  ],
+  "horse & tvmonitor": [
+    "rectangular shape",
+    "smooth surface",
+    "black color",
+    "gray color",
+    "shiny appearance"
+  ],
+  "motorbike & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "motorbike & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "motorbike & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "motorbike & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "motorbike & train": [
+    "wheels",
+    "metal body",
+    "headlights",
+    "seats",
+    "windows"
+  ],
+  "motorbike & tvmonitor": [
+    "rectangular shape",
+    "smooth surface",
+    "black color",
+    "metallic parts",
+    "plastic components"
+  ],
+  "person & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "height",
+    "width"
+  ],
+  "person & sheep": [
+    "head",
+    "eyes",
+    "legs",
+    "body",
+    "ears"
+  ],
+  "person & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "person & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "person & tvmonitor": [
+    "rectangular",
+    "black",
+    "gray",
+    "smooth",
+    "flat"
+  ],
+  "pottedplant & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "pottedplant & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "pottedplant & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "pottedplant & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "colored",
+    "solid"
+  ],
+  "sheep & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface pattern"
+  ],
+  "sheep & train": [
+    "rectangular shape",
+    "gray color",
+    "black details",
+    "multiple connected parts",
+    "visible edges"
+  ],
+  "sheep & tvmonitor": [
+    "rectangular",
+    "gray",
+    "black",
+    "white",
+    "smooth"
+  ],
+  "sofa & train": [
+    "rectangular shape",
+    "metallic parts",
+    "fabric covering",
+    "wheels",
+    "windows"
+  ],
+  "sofa & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "colored",
+    "solid"
+  ],
+  "train & tvmonitor": [
+    "rectangular",
+    "metallic",
+    "black",
+    "gray",
+    "flat"
+  ]
+}

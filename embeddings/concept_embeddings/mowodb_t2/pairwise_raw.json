@@ -1,0 +1,4132 @@
+{
+  "truck & aeroplane": [
+    "wheels",
+    "windows",
+    "metal body",
+    "doors",
+    "lights"
+  ],
+  "truck & bicycle": [
+    "wheels",
+    "frame",
+    "handlebars",
+    "metal parts",
+    "tires"
+  ],
+  "truck & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "truck & boat": [
+    "color",
+    "size",
+    "shape",
+    "material",
+    "texture"
+  ],
+  "truck & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "truck & bus": [
+    "wheels",
+    "windows",
+    "doors",
+    "headlights",
+    "windshield"
+  ],
+  "truck & car": [
+    "wheels",
+    "windows",
+    "doors",
+    "headlights",
+    "body"
+  ],
+  "truck & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "truck & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "truck & cow": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "height"
+  ],
+  "truck & diningtable": [
+    "rectangular",
+    "flat",
+    "solid",
+    "horizontal",
+    "four-legged"
+  ],
+  "truck & dog": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "height"
+  ],
+  "truck & horse": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "height"
+  ],
+  "truck & motorbike": [
+    "wheels",
+    "headlights",
+    "handlebars",
+    "metal body",
+    "tires"
+  ],
+  "truck & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "truck & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "truck & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "outline"
+  ],
+  "truck & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "truck & train": [
+    "wheels",
+    "metal body",
+    "rectangular shape",
+    "windows",
+    "doors"
+  ],
+  "truck & tvmonitor": [
+    "rectangular",
+    "flat",
+    "metallic",
+    "black",
+    "screen-like"
+  ],
+  "traffic light & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "traffic light & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "traffic light & boat": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & bus": [
+    "rectangular shape",
+    "metal casing",
+    "red color",
+    "yellow color",
+    "black color"
+  ],
+  "traffic light & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "traffic light & chair": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "traffic light & diningtable": [
+    "rectangular",
+    "flat",
+    "solid",
+    "colored",
+    "stationary"
+  ],
+  "traffic light & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "traffic light & horse": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "traffic light & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "traffic light & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "traffic light & sheep": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "traffic light & sofa": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "traffic light & train": [
+    "rectangular shape",
+    "metal casing",
+    "red color",
+    "yellow color",
+    "black color"
+  ],
+  "traffic light & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "colored lights",
+    "electronic components",
+    "mounted on a stand or wall"
+  ],
+  "fire hydrant & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "fire hydrant & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & bottle": [
+    "cylindrical",
+    "red",
+    "metallic",
+    "shiny",
+    "vertical"
+  ],
+  "fire hydrant & bus": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "fire hydrant & chair": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "fire hydrant & diningtable": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & horse": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "fire hydrant & motorbike": [
+    "metallic",
+    "painted",
+    "cylindrical",
+    "red",
+    "bolted"
+  ],
+  "fire hydrant & person": [
+    "color",
+    "shape",
+    "height",
+    "width",
+    "texture"
+  ],
+  "fire hydrant & pottedplant": [
+    "color",
+    "shape",
+    "height",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & sheep": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "fire hydrant & sofa": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & train": [
+    "red color",
+    "metal material",
+    "cylindrical shape",
+    "visible bolts or fasteners",
+    "painted surface"
+  ],
+  "fire hydrant & tvmonitor": [
+    "rectangular shape",
+    "metallic surface",
+    "red color",
+    "smooth texture",
+    "symmetrical design"
+  ],
+  "stop sign & aeroplane": [
+    "red",
+    "metallic",
+    "angular",
+    "flat",
+    "symmetrical"
+  ],
+  "stop sign & bicycle": [
+    "red",
+    "metal",
+    "reflective",
+    "flat surface",
+    "angular shape"
+  ],
+  "stop sign & bird": [
+    "red",
+    "black",
+    "white",
+    "shape",
+    "edge"
+  ],
+  "stop sign & boat": [
+    "red",
+    "white",
+    "rectangular",
+    "metallic",
+    "reflective"
+  ],
+  "stop sign & bottle": [
+    "red",
+    "cylindrical",
+    "flat",
+    "smooth",
+    "symmetrical"
+  ],
+  "stop sign & bus": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat surface",
+    "printed text"
+  ],
+  "stop sign & car": [
+    "red",
+    "metallic",
+    "rectangular",
+    "reflective",
+    "rigid"
+  ],
+  "stop sign & cat": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "stop sign & cow": [
+    "red",
+    "white",
+    "rectangular",
+    "textured",
+    "opaque"
+  ],
+  "stop sign & diningtable": [
+    "red",
+    "rectangular",
+    "flat",
+    "solid",
+    "smooth"
+  ],
+  "stop sign & dog": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & horse": [
+    "red",
+    "brown",
+    "rectangular",
+    "textured",
+    "outlined"
+  ],
+  "stop sign & motorbike": [
+    "red",
+    "metallic",
+    "angular",
+    "reflective",
+    "flat"
+  ],
+  "stop sign & person": [
+    "red",
+    "rectangular",
+    "flat",
+    "opaque",
+    "solid"
+  ],
+  "stop sign & pottedplant": [
+    "red",
+    "rectangular",
+    "green",
+    "metallic",
+    "textured"
+  ],
+  "stop sign & sheep": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & sofa": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & train": [
+    "red",
+    "rectangular",
+    "metallic",
+    "large",
+    "flat"
+  ],
+  "stop sign & tvmonitor": [
+    "rectangular",
+    "flat",
+    "red",
+    "black",
+    "metallic"
+  ],
+  "parking meter & aeroplane": [
+    "metallic surface",
+    "rectangular shape",
+    "painted color",
+    "protruding parts",
+    "symmetrical structure"
+  ],
+  "parking meter & bicycle": [
+    "metal",
+    "cylindrical",
+    "wheeled",
+    "painted",
+    "outdoor"
+  ],
+  "parking meter & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "parking meter & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "parking meter & bottle": [
+    "cylindrical shape",
+    "metallic surface",
+    "vertical orientation",
+    "smooth texture",
+    "solid color"
+  ],
+  "parking meter & bus": [
+    "rectangular shape",
+    "metal material",
+    "painted surface",
+    "wheels",
+    "windows"
+  ],
+  "parking meter & car": [
+    "metal",
+    "rectangular",
+    "wheeled",
+    "painted",
+    "reflective"
+  ],
+  "parking meter & cat": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "height"
+  ],
+  "parking meter & chair": [
+    "color",
+    "shape",
+    "height",
+    "material",
+    "texture"
+  ],
+  "parking meter & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "parking meter & diningtable": [
+    "rectangular shape",
+    "flat surface",
+    "metal material",
+    "vertical support",
+    "painted finish"
+  ],
+  "parking meter & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "parking meter & horse": [
+    "color",
+    "shape",
+    "height",
+    "width",
+    "texture"
+  ],
+  "parking meter & motorbike": [
+    "metal",
+    "wheels",
+    "handlebars",
+    "black",
+    "rectangular"
+  ],
+  "parking meter & person": [
+    "color",
+    "height",
+    "shape",
+    "texture",
+    "material"
+  ],
+  "parking meter & pottedplant": [
+    "vertical orientation",
+    "cylindrical shape",
+    "metal material",
+    "green color",
+    "textured surface"
+  ],
+  "parking meter & sheep": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "parking meter & sofa": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "parking meter & train": [
+    "metal",
+    "rectangular",
+    "gray",
+    "wheeled",
+    "industrial"
+  ],
+  "parking meter & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "plastic material",
+    "black color",
+    "screen or display"
+  ],
+  "bench & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bench & bicycle": [
+    "metal",
+    "frame",
+    "seat",
+    "wheels",
+    "handlebars"
+  ],
+  "bench & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "bench & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bench & bottle": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "bench & bus": [
+    "rectangular shape",
+    "flat surface",
+    "metal frame",
+    "painted exterior",
+    "wheeled base"
+  ],
+  "bench & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "bench & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & chair": [
+    "legs",
+    "seat",
+    "backrest",
+    "wooden surface",
+    "rectangular shape"
+  ],
+  "bench & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bench & diningtable": [
+    "flat surface",
+    "four legs",
+    "wooden material",
+    "rectangular shape",
+    "horizontal orientation"
+  ],
+  "bench & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & motorbike": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "bench & person": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "bench & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "bench & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & train": [
+    "color",
+    "texture",
+    "length",
+    "width",
+    "height"
+  ],
+  "bench & tvmonitor": [
+    "rectangular",
+    "flat",
+    "solid",
+    "smooth",
+    "hard"
+  ],
+  "elephant & aeroplane": [
+    "large size",
+    "gray color",
+    "metallic surface",
+    "smooth texture",
+    "elongated shape"
+  ],
+  "elephant & bicycle": [
+    "gray",
+    "large",
+    "metallic",
+    "curved",
+    "textured"
+  ],
+  "elephant & bird": [
+    "eyes",
+    "legs",
+    "skin",
+    "tail",
+    "head"
+  ],
+  "elephant & boat": [
+    "gray",
+    "large",
+    "smooth",
+    "curved",
+    "solid"
+  ],
+  "elephant & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "opacity"
+  ],
+  "elephant & bus": [
+    "large size",
+    "rectangular shape",
+    "gray color",
+    "wheels or legs (support structures)",
+    "windows or eyes (openings)"
+  ],
+  "elephant & car": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "height"
+  ],
+  "elephant & cat": [
+    "eyes",
+    "ears",
+    "nose",
+    "fur",
+    "tail"
+  ],
+  "elephant & chair": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "height"
+  ],
+  "elephant & cow": [
+    "four legs",
+    "large body",
+    "tail",
+    "eyes",
+    "ears"
+  ],
+  "elephant & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "elephant & dog": [
+    "eyes",
+    "ears",
+    "nose",
+    "mouth",
+    "legs"
+  ],
+  "elephant & horse": [
+    "four legs",
+    "tail",
+    "eyes",
+    "ears",
+    "hooves"
+  ],
+  "elephant & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "wheels"
+  ],
+  "elephant & person": [
+    "eyes",
+    "ears",
+    "skin",
+    "legs",
+    "trunk/nose"
+  ],
+  "elephant & pottedplant": [
+    "gray",
+    "brown",
+    "green",
+    "textured",
+    "rounded"
+  ],
+  "elephant & sheep": [
+    "four legs",
+    "tail",
+    "eyes",
+    "ears",
+    "fur or skin covering"
+  ],
+  "elephant & sofa": [
+    "large",
+    "gray",
+    "textured",
+    "bulky",
+    "rounded"
+  ],
+  "elephant & train": [
+    "large size",
+    "gray color",
+    "long shape",
+    "textured surface",
+    "prominent front end"
+  ],
+  "elephant & tvmonitor": [
+    "gray",
+    "rectangular",
+    "large",
+    "solid",
+    "smooth"
+  ],
+  "bear & aeroplane": [
+    "symmetry",
+    "wings",
+    "nose",
+    "body",
+    "color"
+  ],
+  "bear & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bear & bird": [
+    "eyes",
+    "head",
+    "body",
+    "legs",
+    "tail"
+  ],
+  "bear & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "bear & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bear & bus": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "height"
+  ],
+  "bear & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "reflectivity"
+  ],
+  "bear & cat": [
+    "fur",
+    "eyes",
+    "ears",
+    "nose",
+    "tail"
+  ],
+  "bear & chair": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bear & cow": [
+    "four legs",
+    "fur",
+    "tail",
+    "eyes",
+    "ears"
+  ],
+  "bear & diningtable": [
+    "brown",
+    "wooden",
+    "large",
+    "rectangular",
+    "textured"
+  ],
+  "bear & dog": [
+    "fur",
+    "four legs",
+    "tail",
+    "eyes",
+    "nose"
+  ],
+  "bear & horse": [
+    "four legs",
+    "fur",
+    "tail",
+    "eyes",
+    "ears"
+  ],
+  "bear & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "bear & person": [
+    "head",
+    "eyes",
+    "nose",
+    "mouth",
+    "limbs"
+  ],
+  "bear & pottedplant": [
+    "brown",
+    "green",
+    "textured",
+    "rounded",
+    "shadowed"
+  ],
+  "bear & sheep": [
+    "fur",
+    "four legs",
+    "tail",
+    "eyes",
+    "ears"
+  ],
+  "bear & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface pattern"
+  ],
+  "bear & train": [
+    "color",
+    "size",
+    "shape",
+    "texture",
+    "material"
+  ],
+  "bear & tvmonitor": [
+    "rectangular shape",
+    "black color",
+    "gray color",
+    "smooth surface",
+    "flat front"
+  ],
+  "zebra & aeroplane": [
+    "symmetry",
+    "elongated shape",
+    "distinct outline",
+    "surface texture",
+    "color contrast"
+  ],
+  "zebra & bicycle": [
+    "black",
+    "white",
+    "striped",
+    "symmetrical",
+    "outlined"
+  ],
+  "zebra & bird": [
+    "eyes",
+    "head",
+    "legs",
+    "tail",
+    "body"
+  ],
+  "zebra & boat": [
+    "shape",
+    "color",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "zebra & bottle": [
+    "shape",
+    "color",
+    "texture",
+    "size",
+    "outline"
+  ],
+  "zebra & bus": [
+    "stripes",
+    "rectangular shape",
+    "wheels",
+    "windows",
+    "doors"
+  ],
+  "zebra & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "zebra & cat": [
+    "fur",
+    "eyes",
+    "tail",
+    "ears",
+    "whiskers"
+  ],
+  "zebra & chair": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "pattern"
+  ],
+  "zebra & cow": [
+    "four legs",
+    "hooves",
+    "tail",
+    "muzzle",
+    "ears"
+  ],
+  "zebra & diningtable": [
+    "shape",
+    "size",
+    "color",
+    "texture",
+    "edges"
+  ],
+  "zebra & dog": [
+    "fur",
+    "eyes",
+    "tail",
+    "ears",
+    "nose"
+  ],
+  "zebra & horse": [
+    "four legs",
+    "hooves",
+    "mane",
+    "tail",
+    "muzzle"
+  ],
+  "zebra & motorbike": [
+    "black",
+    "white",
+    "striped",
+    "shiny",
+    "metallic"
+  ],
+  "zebra & person": [
+    "head",
+    "eyes",
+    "legs",
+    "ears",
+    "mouth"
+  ],
+  "zebra & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "zebra & sheep": [
+    "four legs",
+    "hooves",
+    "tail",
+    "fur",
+    "eyes"
+  ],
+  "zebra & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "pattern",
+    "size"
+  ],
+  "zebra & train": [
+    "stripes",
+    "rectangular shape",
+    "metallic surface",
+    "wheels",
+    "windows"
+  ],
+  "zebra & tvmonitor": [
+    "rectangular",
+    "black",
+    "white",
+    "flat",
+    "smooth"
+  ],
+  "giraffe & aeroplane": [
+    "long",
+    "narrow",
+    "tall",
+    "smooth",
+    "symmetrical"
+  ],
+  "giraffe & bicycle": [
+    "long",
+    "narrow",
+    "tubular",
+    "vertical",
+    "slender"
+  ],
+  "giraffe & bird": [
+    "eyes",
+    "beak",
+    "neck",
+    "legs",
+    "feathers"
+  ],
+  "giraffe & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "giraffe & bottle": [
+    "tall",
+    "narrow",
+    "elongated",
+    "smooth",
+    "curved"
+  ],
+  "giraffe & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "giraffe & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "giraffe & cat": [
+    "eyes",
+    "ears",
+    "tail",
+    "fur",
+    "nose"
+  ],
+  "giraffe & chair": [
+    "color",
+    "height",
+    "shape",
+    "texture",
+    "legs"
+  ],
+  "giraffe & cow": [
+    "four legs",
+    "hooves",
+    "tail",
+    "ears",
+    "eyes"
+  ],
+  "giraffe & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "height",
+    "surface"
+  ],
+  "giraffe & dog": [
+    "eyes",
+    "ears",
+    "tail",
+    "fur",
+    "legs"
+  ],
+  "giraffe & horse": [
+    "four legs",
+    "hooves",
+    "tail",
+    "mane",
+    "eyes"
+  ],
+  "giraffe & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "giraffe & person": [
+    "neck",
+    "eyes",
+    "ears",
+    "skin",
+    "legs"
+  ],
+  "giraffe & pottedplant": [
+    "tall",
+    "brown",
+    "textured",
+    "vertical",
+    "patterned"
+  ],
+  "giraffe & sheep": [
+    "four legs",
+    "hooves",
+    "fur",
+    "tail",
+    "eyes"
+  ],
+  "giraffe & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "giraffe & train": [
+    "long",
+    "rectangular",
+    "striped",
+    "metallic",
+    "windowed"
+  ],
+  "giraffe & tvmonitor": [
+    "rectangular",
+    "tall",
+    "narrow",
+    "smooth",
+    "colored"
+  ],
+  "backpack & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "backpack & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "backpack & bird": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "backpack & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "backpack & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "backpack & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "backpack & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "backpack & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "backpack & chair": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "backpack & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "backpack & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & dog": [
+    "color",
+    "texture",
+    "size",
+    "shape",
+    "pattern"
+  ],
+  "backpack & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & motorbike": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "backpack & person": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "backpack & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & train": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "plastic material",
+    "black color",
+    "smooth texture"
+  ],
+  "umbrella & aeroplane": [
+    "symmetry",
+    "metallic parts",
+    "fabric or sheet-like surfaces",
+    "elongated shape",
+    "structural frame"
+  ],
+  "umbrella & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "umbrella & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "umbrella & boat": [
+    "curved shape",
+    "symmetrical form",
+    "water-resistant surface",
+    "handle or grip",
+    "ribbed structure"
+  ],
+  "umbrella & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "umbrella & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "umbrella & car": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "umbrella & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "umbrella & chair": [
+    "color",
+    "shape",
+    "material",
+    "texture",
+    "size"
+  ],
+  "umbrella & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "umbrella & diningtable": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "umbrella & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "umbrella & horse": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "outline"
+  ],
+  "umbrella & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "umbrella & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "umbrella & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "height",
+    "material"
+  ],
+  "umbrella & sheep": [
+    "white",
+    "curved",
+    "textured",
+    "rounded",
+    "layered"
+  ],
+  "umbrella & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "umbrella & train": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "umbrella & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "black color",
+    "plastic material",
+    "metal components"
+  ],
+  "handbag & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "handbag & bicycle": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "handbag & bird": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & boat": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "handbag & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "handbag & bus": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "handbag & car": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "handbag & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & chair": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "handbag & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "handbag & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & motorbike": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "handbag & person": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "handbag & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "handbag & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "handbag & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "pattern"
+  ],
+  "handbag & train": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "handbag & tvmonitor": [
+    "rectangular",
+    "smooth",
+    "black",
+    "plastic",
+    "shiny"
+  ],
+  "tie & aeroplane": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "pattern"
+  ],
+  "tie & bicycle": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "pattern"
+  ],
+  "tie & bird": [
+    "color",
+    "pattern",
+    "shape",
+    "texture",
+    "size"
+  ],
+  "tie & boat": [
+    "color",
+    "shape",
+    "texture",
+    "length",
+    "width"
+  ],
+  "tie & bottle": [
+    "color",
+    "shape",
+    "texture",
+    "length",
+    "width"
+  ],
+  "tie & bus": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & car": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & cat": [
+    "color",
+    "texture",
+    "pattern",
+    "shape",
+    "length"
+  ],
+  "tie & chair": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & diningtable": [
+    "rectangular",
+    "smooth",
+    "textured",
+    "colored",
+    "flat"
+  ],
+  "tie & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & horse": [
+    "color",
+    "texture",
+    "length",
+    "width",
+    "shape"
+  ],
+  "tie & motorbike": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "pattern"
+  ],
+  "tie & person": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "tie & sofa": [
+    "color",
+    "texture",
+    "pattern",
+    "shape",
+    "material"
+  ],
+  "tie & train": [
+    "color",
+    "texture",
+    "length",
+    "pattern",
+    "material"
+  ],
+  "tie & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "colored",
+    "symmetrical"
+  ],
+  "suitcase & aeroplane": [
+    "rectangular shape",
+    "metallic surface",
+    "wheels",
+    "handle",
+    "smooth texture"
+  ],
+  "suitcase & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "suitcase & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "suitcase & boat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "suitcase & bottle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "suitcase & bus": [
+    "rectangular shape",
+    "wheels",
+    "handle",
+    "metallic parts",
+    "doors"
+  ],
+  "suitcase & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "suitcase & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "suitcase & chair": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "suitcase & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface pattern"
+  ],
+  "suitcase & diningtable": [
+    "rectangular",
+    "flat surface",
+    "hard material",
+    "four legs or corners",
+    "brown color"
+  ],
+  "suitcase & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "suitcase & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "suitcase & motorbike": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "suitcase & person": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "edges"
+  ],
+  "suitcase & pottedplant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "suitcase & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface pattern"
+  ],
+  "suitcase & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "suitcase & train": [
+    "rectangular shape",
+    "metallic surface",
+    "wheels",
+    "handles",
+    "doors"
+  ],
+  "suitcase & tvmonitor": [
+    "rectangular shape",
+    "flat surface",
+    "hard material",
+    "smooth texture",
+    "defined edges"
+  ],
+  "microwave & aeroplane": [
+    "rectangular shape",
+    "metallic surface",
+    "smooth texture",
+    "symmetrical design",
+    "visible seams or joints"
+  ],
+  "microwave & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "microwave & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "microwave & boat": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "microwave & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "microwave & bus": [
+    "rectangular shape",
+    "metal surface",
+    "door",
+    "window",
+    "handle"
+  ],
+  "microwave & car": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "microwave & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface reflectivity"
+  ],
+  "microwave & chair": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "microwave & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "microwave & diningtable": [
+    "rectangular shape",
+    "flat surface",
+    "smooth texture",
+    "solid color",
+    "hard material"
+  ],
+  "microwave & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface reflectivity"
+  ],
+  "microwave & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface reflectivity"
+  ],
+  "microwave & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "microwave & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "surface"
+  ],
+  "microwave & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "microwave & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "microwave & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface finish"
+  ],
+  "microwave & train": [
+    "rectangular shape",
+    "metal surface",
+    "door",
+    "window",
+    "handle"
+  ],
+  "microwave & tvmonitor": [
+    "rectangular shape",
+    "flat front surface",
+    "black or dark color",
+    "plastic or metal casing",
+    "visible screen or display area"
+  ],
+  "oven & aeroplane": [
+    "metallic surface",
+    "rectangular shape",
+    "control panel",
+    "door or hatch",
+    "wheels"
+  ],
+  "oven & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "oven & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "surface"
+  ],
+  "oven & boat": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "oven & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "oven & bus": [
+    "rectangular shape",
+    "metal surface",
+    "doors",
+    "windows",
+    "wheels"
+  ],
+  "oven & car": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "oven & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "oven & chair": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "oven & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "oven & diningtable": [
+    "rectangular shape",
+    "flat surface",
+    "wooden material",
+    "metal components",
+    "four legs"
+  ],
+  "oven & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "oven & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "oven & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "oven & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "oven & pottedplant": [
+    "rectangular shape",
+    "brown color",
+    "metal surface",
+    "visible edges",
+    "static structure"
+  ],
+  "oven & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "oven & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "oven & train": [
+    "rectangular shape",
+    "metal surface",
+    "door or opening",
+    "control panel",
+    "wheels"
+  ],
+  "oven & tvmonitor": [
+    "rectangular shape",
+    "flat front surface",
+    "black color",
+    "plastic material",
+    "metal edges"
+  ],
+  "toaster & aeroplane": [
+    "metallic surface",
+    "rectangular shape",
+    "smooth texture",
+    "symmetrical design",
+    "visible seams"
+  ],
+  "toaster & bicycle": [
+    "metal",
+    "gray",
+    "rectangular",
+    "wheels",
+    "handlebars"
+  ],
+  "toaster & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "toaster & boat": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "toaster & bottle": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "toaster & bus": [
+    "rectangular shape",
+    "metal surface",
+    "black color",
+    "wheels",
+    "doors"
+  ],
+  "toaster & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "toaster & cat": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "toaster & chair": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "toaster & cow": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "surface"
+  ],
+  "toaster & diningtable": [
+    "rectangular shape",
+    "flat surface",
+    "metallic parts",
+    "plastic components",
+    "visible edges"
+  ],
+  "toaster & dog": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "toaster & horse": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "toaster & motorbike": [
+    "metal",
+    "black",
+    "shiny",
+    "rectangular",
+    "wheels"
+  ],
+  "toaster & person": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "toaster & pottedplant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "toaster & sheep": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "toaster & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "toaster & train": [
+    "rectangular shape",
+    "metallic surface",
+    "black color",
+    "visible seams",
+    "protruding parts"
+  ],
+  "toaster & tvmonitor": [
+    "rectangular shape",
+    "flat front surface",
+    "plastic casing",
+    "electronic components",
+    "power cord"
+  ],
+  "sink & aeroplane": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "sink & bicycle": [
+    "color",
+    "shape",
+    "material",
+    "texture",
+    "size"
+  ],
+  "sink & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "sink & boat": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "sink & bottle": [
+    "color",
+    "shape",
+    "material",
+    "texture",
+    "size"
+  ],
+  "sink & bus": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "sink & car": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "sink & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "reflectivity"
+  ],
+  "sink & chair": [
+    "color",
+    "material",
+    "shape",
+    "size",
+    "texture"
+  ],
+  "sink & cow": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "sink & diningtable": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "surface finish"
+  ],
+  "sink & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "sink & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "sink & motorbike": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "sink & person": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "sink & pottedplant": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "sink & sheep": [
+    "white",
+    "smooth",
+    "curved",
+    "rounded",
+    "textured"
+  ],
+  "sink & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "sink & train": [
+    "metallic",
+    "rectangular",
+    "smooth",
+    "gray",
+    "shiny"
+  ],
+  "sink & tvmonitor": [
+    "rectangular",
+    "flat",
+    "smooth",
+    "black",
+    "plastic"
+  ],
+  "refrigerator & aeroplane": [
+    "metallic surface",
+    "rectangular shape",
+    "smooth texture",
+    "doors",
+    "windows"
+  ],
+  "refrigerator & bicycle": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "refrigerator & bird": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "refrigerator & boat": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "refrigerator & bottle": [
+    "color",
+    "shape",
+    "height",
+    "surface texture",
+    "material"
+  ],
+  "refrigerator & bus": [
+    "rectangular shape",
+    "metal surface",
+    "doors",
+    "windows",
+    "wheels"
+  ],
+  "refrigerator & car": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "refrigerator & cat": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface reflectivity"
+  ],
+  "refrigerator & chair": [
+    "color",
+    "height",
+    "width",
+    "material",
+    "shape"
+  ],
+  "refrigerator & cow": [
+    "white",
+    "rectangular",
+    "smooth",
+    "large",
+    "shiny"
+  ],
+  "refrigerator & diningtable": [
+    "rectangular shape",
+    "flat surface",
+    "smooth texture",
+    "wood or metal material",
+    "four legs or supports"
+  ],
+  "refrigerator & dog": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface reflectivity"
+  ],
+  "refrigerator & horse": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "refrigerator & motorbike": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "refrigerator & person": [
+    "height",
+    "width",
+    "color",
+    "texture",
+    "shape"
+  ],
+  "refrigerator & pottedplant": [
+    "color",
+    "height",
+    "width",
+    "texture",
+    "shape"
+  ],
+  "refrigerator & sheep": [
+    "white",
+    "fuzzy",
+    "rectangular",
+    "smooth",
+    "textured"
+  ],
+  "refrigerator & sofa": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "refrigerator & train": [
+    "rectangular shape",
+    "metal surface",
+    "door(s)",
+    "handle(s)",
+    "wheels"
+  ],
+  "refrigerator & tvmonitor": [
+    "rectangular shape",
+    "flat front surface",
+    "smooth texture",
+    "black or gray color",
+    "visible edges and corners"
+  ],
+  "truck & traffic light": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "truck & fire hydrant": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "truck & stop sign": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat",
+    "rigid"
+  ],
+  "truck & parking meter": [
+    "metal",
+    "rectangular",
+    "gray",
+    "wheeled",
+    "bolted"
+  ],
+  "truck & bench": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "truck & elephant": [
+    "large size",
+    "gray color",
+    "four legs",
+    "tough skin/texture",
+    "prominent body mass"
+  ],
+  "truck & bear": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "height"
+  ],
+  "truck & zebra": [
+    "stripes",
+    "wheels",
+    "rectangular shape",
+    "black color",
+    "white color"
+  ],
+  "truck & giraffe": [
+    "color",
+    "height",
+    "shape",
+    "texture",
+    "size"
+  ],
+  "truck & backpack": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "truck & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "truck & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "truck & tie": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "truck & suitcase": [
+    "rectangular shape",
+    "wheels",
+    "handle",
+    "metal parts",
+    "fabric or plastic surface"
+  ],
+  "truck & microwave": [
+    "rectangular shape",
+    "metal surface",
+    "handle",
+    "door",
+    "control panel"
+  ],
+  "truck & oven": [
+    "rectangular shape",
+    "metal surface",
+    "door",
+    "handle",
+    "wheels"
+  ],
+  "truck & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "truck & sink": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "truck & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "door(s)",
+    "handle(s)",
+    "wheels"
+  ],
+  "traffic light & fire hydrant": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "traffic light & stop sign": [
+    "red color",
+    "rectangular shape",
+    "metal material",
+    "mounted on pole",
+    "reflective surface"
+  ],
+  "traffic light & parking meter": [
+    "rectangular shape",
+    "metal casing",
+    "mounted on a pole",
+    "colored lights or displays",
+    "weather-resistant surface"
+  ],
+  "traffic light & bench": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & elephant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "outline"
+  ],
+  "traffic light & bear": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "traffic light & zebra": [
+    "black",
+    "white",
+    "rectangular",
+    "striped",
+    "outdoor"
+  ],
+  "traffic light & giraffe": [
+    "color",
+    "shape",
+    "height",
+    "texture",
+    "pattern"
+  ],
+  "traffic light & backpack": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "traffic light & handbag": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "traffic light & tie": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "traffic light & suitcase": [
+    "rectangular",
+    "metallic",
+    "colored",
+    "smooth",
+    "hard"
+  ],
+  "traffic light & microwave": [
+    "rectangular shape",
+    "plastic casing",
+    "colored lights",
+    "smooth surface",
+    "electronic components"
+  ],
+  "traffic light & oven": [
+    "rectangular shape",
+    "metal casing",
+    "glass or transparent panel",
+    "colored lights or indicators",
+    "mounted on a surface or structure"
+  ],
+  "traffic light & toaster": [
+    "rectangular shape",
+    "plastic casing",
+    "metal components",
+    "indicator lights",
+    "wires or cables"
+  ],
+  "traffic light & sink": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "traffic light & refrigerator": [
+    "rectangular shape",
+    "metal casing",
+    "colored surfaces",
+    "visible edges",
+    "flat front panel"
+  ],
+  "fire hydrant & stop sign": [
+    "red color",
+    "metal material",
+    "cylindrical shape",
+    "mounted on ground",
+    "painted surface"
+  ],
+  "fire hydrant & parking meter": [
+    "metallic surface",
+    "cylindrical shape",
+    "mounted on a pole or post",
+    "painted red",
+    "outdoor fixture"
+  ],
+  "fire hydrant & bench": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & elephant": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "height"
+  ],
+  "fire hydrant & bear": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "symmetry"
+  ],
+  "fire hydrant & zebra": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "fire hydrant & giraffe": [
+    "color",
+    "height",
+    "shape",
+    "texture",
+    "width"
+  ],
+  "fire hydrant & backpack": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & umbrella": [
+    "color",
+    "shape",
+    "height",
+    "material",
+    "texture"
+  ],
+  "fire hydrant & handbag": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & tie": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "fire hydrant & suitcase": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "fire hydrant & microwave": [
+    "rectangular shape",
+    "metal surface",
+    "handle",
+    "door",
+    "color"
+  ],
+  "fire hydrant & oven": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "fire hydrant & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "surface texture"
+  ],
+  "fire hydrant & sink": [
+    "metal",
+    "faucet",
+    "handle",
+    "pipe",
+    "chrome"
+  ],
+  "fire hydrant & refrigerator": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "stop sign & parking meter": [
+    "red color",
+    "metal material",
+    "rectangular shape",
+    "mounted on a pole",
+    "outdoor object"
+  ],
+  "stop sign & bench": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "stop sign & elephant": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & bear": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & zebra": [
+    "black",
+    "white",
+    "striped",
+    "rectangular",
+    "outdoor"
+  ],
+  "stop sign & giraffe": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "edges"
+  ],
+  "stop sign & backpack": [
+    "red",
+    "rectangular",
+    "made of fabric or metal",
+    "has seams or edges",
+    "printed or painted markings"
+  ],
+  "stop sign & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "stop sign & handbag": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "stop sign & tie": [
+    "red",
+    "rectangular",
+    "fabric-like texture",
+    "printed text",
+    "symmetrical"
+  ],
+  "stop sign & suitcase": [
+    "red",
+    "rectangular",
+    "flat",
+    "made of metal",
+    "has edges"
+  ],
+  "stop sign & microwave": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat surface",
+    "printed text"
+  ],
+  "stop sign & oven": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat surface",
+    "printed text"
+  ],
+  "stop sign & toaster": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat surface",
+    "printed text"
+  ],
+  "stop sign & sink": [
+    "red",
+    "white",
+    "metallic",
+    "rectangular",
+    "smooth"
+  ],
+  "stop sign & refrigerator": [
+    "red",
+    "rectangular",
+    "metallic",
+    "flat surface",
+    "printed text"
+  ],
+  "parking meter & bench": [
+    "rectangular shape",
+    "metal material",
+    "gray color",
+    "vertical orientation",
+    "bolted to ground"
+  ],
+  "parking meter & elephant": [
+    "gray color",
+    "vertical orientation",
+    "cylindrical shape",
+    "textured surface",
+    "solid structure"
+  ],
+  "parking meter & bear": [
+    "brown",
+    "black",
+    "gray",
+    "cylindrical",
+    "metallic"
+  ],
+  "parking meter & zebra": [
+    "black",
+    "white",
+    "striped",
+    "vertical",
+    "cylindrical"
+  ],
+  "parking meter & giraffe": [
+    "tall",
+    "narrow",
+    "vertical",
+    "cylindrical",
+    "striped"
+  ],
+  "parking meter & backpack": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "parking meter & umbrella": [
+    "color",
+    "shape",
+    "height",
+    "material",
+    "texture"
+  ],
+  "parking meter & handbag": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "parking meter & tie": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "parking meter & suitcase": [
+    "rectangular shape",
+    "metal material",
+    "handle",
+    "wheels",
+    "dark color"
+  ],
+  "parking meter & microwave": [
+    "rectangular shape",
+    "metal casing",
+    "digital display",
+    "buttons or controls",
+    "wires or cables"
+  ],
+  "parking meter & oven": [
+    "rectangular shape",
+    "metal surface",
+    "digital display",
+    "control buttons",
+    "front-facing panel"
+  ],
+  "parking meter & toaster": [
+    "rectangular shape",
+    "metal surface",
+    "gray color",
+    "plastic components",
+    "button-like elements"
+  ],
+  "parking meter & sink": [
+    "metal",
+    "rectangular",
+    "gray",
+    "smooth surface",
+    "faucet-like protrusion"
+  ],
+  "parking meter & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "front-facing panel",
+    "visible handle",
+    "mounted on a base"
+  ],
+  "bench & elephant": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bench & bear": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bench & zebra": [
+    "stripes",
+    "texture",
+    "color",
+    "shape",
+    "edges"
+  ],
+  "bench & giraffe": [
+    "color",
+    "texture",
+    "shape",
+    "height",
+    "width"
+  ],
+  "bench & backpack": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "bench & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "bench & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "bench & tie": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "pattern"
+  ],
+  "bench & suitcase": [
+    "rectangular",
+    "has handles",
+    "made of fabric or leather",
+    "has zippers or fasteners",
+    "flat top surface"
+  ],
+  "bench & microwave": [
+    "rectangular shape",
+    "smooth surface",
+    "metallic parts",
+    "plastic components",
+    "rounded corners"
+  ],
+  "bench & oven": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bench & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "bench & sink": [
+    "color",
+    "material",
+    "shape",
+    "texture",
+    "size"
+  ],
+  "bench & refrigerator": [
+    "rectangular shape",
+    "flat top surface",
+    "vertical sides",
+    "horizontal base",
+    "solid color"
+  ],
+  "elephant & bear": [
+    "fur",
+    "eyes",
+    "ears",
+    "nose",
+    "legs"
+  ],
+  "elephant & zebra": [
+    "four legs",
+    "tail",
+    "eyes",
+    "ears",
+    "muzzle"
+  ],
+  "elephant & giraffe": [
+    "four legs",
+    "long tail",
+    "large ears",
+    "hooves",
+    "spotted skin"
+  ],
+  "elephant & backpack": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "elephant & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "elephant & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "elephant & tie": [
+    "gray",
+    "long",
+    "wrinkled",
+    "textured",
+    "flexible"
+  ],
+  "elephant & suitcase": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "elephant & microwave": [
+    "gray",
+    "rectangular",
+    "smooth",
+    "solid",
+    "large"
+  ],
+  "elephant & oven": [
+    "gray",
+    "large",
+    "rectangular",
+    "solid",
+    "textured"
+  ],
+  "elephant & toaster": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "elephant & sink": [
+    "gray",
+    "smooth",
+    "curved",
+    "solid",
+    "rounded"
+  ],
+  "elephant & refrigerator": [
+    "large size",
+    "gray color",
+    "rectangular shape",
+    "smooth surface",
+    "vertical orientation"
+  ],
+  "bear & zebra": [
+    "four legs",
+    "tail",
+    "eyes",
+    "ears",
+    "fur"
+  ],
+  "bear & giraffe": [
+    "eyes",
+    "ears",
+    "tail",
+    "fur",
+    "legs"
+  ],
+  "bear & backpack": [
+    "brown",
+    "furry",
+    "rectangular",
+    "straps",
+    "pockets"
+  ],
+  "bear & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "pattern"
+  ],
+  "bear & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "bear & tie": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "bear & suitcase": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "bear & microwave": [
+    "rectangular shape",
+    "black color",
+    "metallic surface",
+    "handle",
+    "door"
+  ],
+  "bear & oven": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "surface"
+  ],
+  "bear & toaster": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "bear & sink": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "surface"
+  ],
+  "bear & refrigerator": [
+    "rectangular shape",
+    "smooth surface",
+    "metallic finish",
+    "door handle",
+    "vertical orientation"
+  ],
+  "zebra & giraffe": [
+    "four legs",
+    "hooves",
+    "long neck",
+    "tail with tuft",
+    "muzzle"
+  ],
+  "zebra & backpack": [
+    "color",
+    "pattern",
+    "shape",
+    "texture",
+    "size"
+  ],
+  "zebra & umbrella": [
+    "striped",
+    "black",
+    "white",
+    "curved",
+    "patterned"
+  ],
+  "zebra & handbag": [
+    "color",
+    "pattern",
+    "texture",
+    "shape",
+    "size"
+  ],
+  "zebra & tie": [
+    "striped",
+    "black",
+    "white",
+    "patterned",
+    "rectangular"
+  ],
+  "zebra & suitcase": [
+    "rectangular shape",
+    "black color",
+    "white color",
+    "smooth texture",
+    "hard surface"
+  ],
+  "zebra & microwave": [
+    "rectangular shape",
+    "black color",
+    "white color",
+    "smooth surface",
+    "hard texture"
+  ],
+  "zebra & oven": [
+    "rectangular shape",
+    "black color",
+    "white color",
+    "smooth surface",
+    "metallic texture"
+  ],
+  "zebra & toaster": [
+    "rectangular shape",
+    "black color",
+    "white color",
+    "smooth surface",
+    "hard material"
+  ],
+  "zebra & sink": [
+    "white",
+    "gray",
+    "black",
+    "smooth",
+    "rectangular"
+  ],
+  "zebra & refrigerator": [
+    "rectangular shape",
+    "striped pattern",
+    "white color",
+    "black color",
+    "smooth surface"
+  ],
+  "giraffe & backpack": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "giraffe & umbrella": [
+    "color",
+    "shape",
+    "pattern",
+    "texture",
+    "size"
+  ],
+  "giraffe & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "pattern",
+    "size"
+  ],
+  "giraffe & tie": [
+    "long",
+    "narrow",
+    "striped",
+    "brown",
+    "yellow"
+  ],
+  "giraffe & suitcase": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "pattern"
+  ],
+  "giraffe & microwave": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "edges"
+  ],
+  "giraffe & oven": [
+    "color",
+    "shape",
+    "height",
+    "width",
+    "surface texture"
+  ],
+  "giraffe & toaster": [
+    "color",
+    "shape",
+    "height",
+    "width",
+    "texture"
+  ],
+  "giraffe & sink": [
+    "color",
+    "shape",
+    "texture",
+    "height",
+    "width"
+  ],
+  "giraffe & refrigerator": [
+    "tall",
+    "rectangular",
+    "vertical",
+    "smooth surface",
+    "solid color"
+  ],
+  "backpack & umbrella": [
+    "color",
+    "shape",
+    "size",
+    "material texture",
+    "handle"
+  ],
+  "backpack & handbag": [
+    "color",
+    "material",
+    "shape",
+    "size",
+    "texture"
+  ],
+  "backpack & tie": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "pattern"
+  ],
+  "backpack & suitcase": [
+    "handle",
+    "zipper",
+    "fabric material",
+    "rectangular shape",
+    "stitching"
+  ],
+  "backpack & microwave": [
+    "rectangular shape",
+    "handle",
+    "door",
+    "metal surface",
+    "plastic components"
+  ],
+  "backpack & oven": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "backpack & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "backpack & sink": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "backpack & refrigerator": [
+    "rectangular shape",
+    "handle",
+    "zipper or door",
+    "fabric or metal surface",
+    "logo or brand marking"
+  ],
+  "umbrella & handbag": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "size"
+  ],
+  "umbrella & tie": [
+    "color",
+    "pattern",
+    "texture",
+    "shape",
+    "material"
+  ],
+  "umbrella & suitcase": [
+    "color",
+    "handle",
+    "fabric material",
+    "metal parts",
+    "folded shape"
+  ],
+  "umbrella & microwave": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "umbrella & oven": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "umbrella & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "umbrella & sink": [
+    "color",
+    "shape",
+    "material",
+    "texture",
+    "size"
+  ],
+  "umbrella & refrigerator": [
+    "color",
+    "shape",
+    "size",
+    "surface texture",
+    "material"
+  ],
+  "handbag & tie": [
+    "color",
+    "texture",
+    "shape",
+    "pattern",
+    "material"
+  ],
+  "handbag & suitcase": [
+    "color",
+    "texture",
+    "shape",
+    "material",
+    "handle"
+  ],
+  "handbag & microwave": [
+    "rectangular shape",
+    "smooth surface",
+    "handle",
+    "door",
+    "metallic finish"
+  ],
+  "handbag & oven": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "handbag & toaster": [
+    "color",
+    "shape",
+    "size",
+    "texture",
+    "material"
+  ],
+  "handbag & sink": [
+    "color",
+    "shape",
+    "texture",
+    "material",
+    "size"
+  ],
+  "handbag & refrigerator": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "tie & suitcase": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "tie & microwave": [
+    "rectangular shape",
+    "smooth surface",
+    "solid color",
+    "plastic material",
+    "black color"
+  ],
+  "tie & oven": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "tie & toaster": [
+    "color",
+    "shape",
+    "texture",
+    "size",
+    "material"
+  ],
+  "tie & sink": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "tie & refrigerator": [
+    "color",
+    "texture",
+    "shape",
+    "size",
+    "material"
+  ],
+  "suitcase & microwave": [
+    "rectangular shape",
+    "handle",
+    "smooth surface",
+    "plastic material",
+    "metal accents"
+  ],
+  "suitcase & oven": [
+    "rectangular shape",
+    "metal surface",
+    "handle",
+    "door",
+    "smooth texture"
+  ],
+  "suitcase & toaster": [
+    "color",
+    "shape",
+    "size",
+    "material",
+    "texture"
+  ],
+  "suitcase & sink": [
+    "rectangular shape",
+    "smooth surface",
+    "hard material",
+    "solid color",
+    "visible edges"
+  ],
+  "suitcase & refrigerator": [
+    "rectangular shape",
+    "handle",
+    "smooth surface",
+    "door",
+    "metallic finish"
+  ],
+  "microwave & oven": [
+    "rectangular shape",
+    "metal exterior",
+    "glass door",
+    "control panel",
+    "handle"
+  ],
+  "microwave & toaster": [
+    "rectangular shape",
+    "metal exterior",
+    "front-facing door or slot",
+    "control panel",
+    "corded power supply"
+  ],
+  "microwave & sink": [
+    "rectangular shape",
+    "metal surface",
+    "smooth texture",
+    "white color",
+    "front-facing opening"
+  ],
+  "microwave & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "door handle",
+    "smooth finish",
+    "front-facing door"
+  ],
+  "oven & toaster": [
+    "metal exterior",
+    "heating elements",
+    "door or slot",
+    "control knobs or buttons",
+    "cord or power plug"
+  ],
+  "oven & sink": [
+    "rectangular shape",
+    "metal surface",
+    "smooth texture",
+    "faucet or handle",
+    "white color"
+  ],
+  "oven & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "door handle",
+    "front-facing door",
+    "smooth finish"
+  ],
+  "toaster & sink": [
+    "color",
+    "shape",
+    "material",
+    "size",
+    "surface texture"
+  ],
+  "toaster & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "plastic components",
+    "control buttons",
+    "electrical cord"
+  ],
+  "sink & refrigerator": [
+    "rectangular shape",
+    "metal surface",
+    "white color",
+    "smooth texture",
+    "door handle"
+  ]
+}

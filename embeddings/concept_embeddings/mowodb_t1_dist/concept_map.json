@@ -1,0 +1,438 @@
+{
+  "pos_map_set": {
+    "aeroplane": [
+      "metallic surface",
+      "wings"
+    ],
+    "bicycle": [
+      "handlebars",
+      "metal frame",
+      "pedals",
+      "wheels"
+    ],
+    "bird": [
+      "feathers"
+    ],
+    "boat": [
+      "hull",
+      "hull shape"
+    ],
+    "bottle": [
+      "neck",
+      "transparency",
+      "transparent"
+    ],
+    "bus": [
+      "multiple doors",
+      "multiple passenger windows",
+      "steering wheel",
+      "wheels",
+      "wheels on the ground",
+      "windows"
+    ],
+    "car": [
+      "enclosed cabin",
+      "four wheels",
+      "steering wheel",
+      "sunroof",
+      "wheels"
+    ],
+    "cat": [
+      "fur",
+      "vertical slit pupils",
+      "whiskers"
+    ],
+    "chair": [
+      "backrest",
+      "legs",
+      "legs with rigid, straight structure",
+      "legs with straight, rigid structure",
+      "single seat"
+    ],
+    "cow": [
+      "fur",
+      "hooves",
+      "spotted coat",
+      "udder"
+    ],
+    "diningtable": [
+      "flat horizontal surface",
+      "flat surface"
+    ],
+    "dog": [
+      "floppy ears",
+      "fur",
+      "pointed ears"
+    ],
+    "horse": [
+      "fur",
+      "hooves",
+      "mane"
+    ],
+    "motorbike": [
+      "exhaust pipe",
+      "handlebars",
+      "headlight",
+      "metallic surface",
+      "wheels"
+    ],
+    "person": [
+      "face",
+      "fingers",
+      "limbs",
+      "opposable thumbs",
+      "skin"
+    ],
+    "pottedplant": [
+      "green leaves",
+      "leaves",
+      "pot",
+      "roots"
+    ],
+    "sheep": [
+      "fur",
+      "wool",
+      "woolly coat"
+    ],
+    "sofa": [
+      "cushioned seating surface",
+      "cushioned surface",
+      "cushions",
+      "seating for multiple people"
+    ],
+    "train": [
+      "metallic body",
+      "multiple connected cars",
+      "rails",
+      "wheels"
+    ],
+    "tvmonitor": [
+      "screen"
+    ]
+  },
+  "neg_map_set": {
+    "bicycle": [
+      "backrest",
+      "cushioned surface",
+      "enclosed cabin",
+      "exhaust pipe",
+      "feathers",
+      "flat surface",
+      "fur",
+      "hull",
+      "leaves",
+      "multiple connected cars",
+      "multiple doors",
+      "screen",
+      "skin",
+      "transparency",
+      "wings"
+    ],
+    "bird": [
+      "cushioned surface",
+      "fingers",
+      "flat surface",
+      "fur",
+      "hooves",
+      "hull",
+      "legs",
+      "metallic surface",
+      "roots",
+      "screen",
+      "transparency",
+      "wheels",
+      "whiskers",
+      "wool"
+    ],
+    "boat": [
+      "backrest",
+      "cushioned surface",
+      "feathers",
+      "flat horizontal surface",
+      "fur",
+      "leaves",
+      "limbs",
+      "neck",
+      "screen",
+      "wheels",
+      "wings"
+    ],
+    "bottle": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "fur",
+      "hull shape",
+      "leaves",
+      "legs",
+      "limbs",
+      "screen",
+      "wheels",
+      "wings"
+    ],
+    "bus": [
+      "backrest",
+      "cushioned seating surface",
+      "feathers",
+      "flat horizontal surface",
+      "fur",
+      "handlebars",
+      "hull",
+      "leaves",
+      "limbs",
+      "rails",
+      "screen",
+      "sunroof",
+      "transparency",
+      "wings"
+    ],
+    "car": [
+      "backrest",
+      "cushioned surface",
+      "feathers",
+      "flat horizontal surface",
+      "fur",
+      "handlebars",
+      "hull",
+      "leaves",
+      "multiple connected cars",
+      "multiple passenger windows",
+      "pedals",
+      "screen",
+      "skin",
+      "transparency",
+      "wings"
+    ],
+    "cat": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "floppy ears",
+      "handlebars",
+      "hooves",
+      "hull",
+      "legs with rigid, straight structure",
+      "opposable thumbs",
+      "roots",
+      "screen",
+      "transparency",
+      "udder",
+      "wheels",
+      "wings",
+      "woolly coat"
+    ],
+    "chair": [
+      "feathers",
+      "flat horizontal surface",
+      "fur",
+      "hull",
+      "leaves",
+      "screen",
+      "seating for multiple people",
+      "skin",
+      "transparency",
+      "wheels",
+      "wings"
+    ],
+    "cow": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "handlebars",
+      "headlight",
+      "hull",
+      "legs with straight, rigid structure",
+      "mane",
+      "metallic body",
+      "opposable thumbs",
+      "pointed ears",
+      "pot",
+      "screen",
+      "transparency",
+      "wheels",
+      "whiskers",
+      "windows",
+      "wings",
+      "woolly coat"
+    ],
+    "diningtable": [
+      "backrest",
+      "cushioned seating surface",
+      "feathers",
+      "fur",
+      "hull",
+      "leaves",
+      "screen",
+      "skin",
+      "transparency",
+      "wheels",
+      "wings"
+    ],
+    "dog": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "green leaves",
+      "handlebars",
+      "hooves",
+      "hull",
+      "legs with straight, rigid structure",
+      "opposable thumbs",
+      "screen",
+      "transparent",
+      "udder",
+      "vertical slit pupils",
+      "wheels",
+      "wings",
+      "woolly coat"
+    ],
+    "horse": [
+      "backrest",
+      "cushioned surface",
+      "exhaust pipe",
+      "feathers",
+      "flat surface",
+      "floppy ears",
+      "handlebars",
+      "hull",
+      "metallic body",
+      "opposable thumbs",
+      "pot",
+      "screen",
+      "transparency",
+      "udder",
+      "wheels",
+      "whiskers",
+      "wings",
+      "woolly coat"
+    ],
+    "motorbike": [
+      "backrest",
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "four wheels",
+      "fur",
+      "hull",
+      "leaves",
+      "multiple connected cars",
+      "multiple passenger windows",
+      "pedals",
+      "screen",
+      "skin",
+      "transparency",
+      "wings"
+    ],
+    "person": [
+      "backrest",
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "fur",
+      "green leaves",
+      "handlebars",
+      "hooves",
+      "hull",
+      "screen",
+      "transparency",
+      "wheels",
+      "whiskers",
+      "wings",
+      "woolly coat"
+    ],
+    "pottedplant": [
+      "cushions",
+      "face",
+      "feathers",
+      "flat surface",
+      "fur",
+      "hull",
+      "legs",
+      "screen",
+      "transparency",
+      "wheels",
+      "wings"
+    ],
+    "sheep": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "hull",
+      "legs",
+      "mane",
+      "metal frame",
+      "metallic body",
+      "metallic surface",
+      "opposable thumbs",
+      "pointed ears",
+      "pot",
+      "screen",
+      "spotted coat",
+      "transparency",
+      "wheels",
+      "whiskers",
+      "windows",
+      "wings"
+    ],
+    "sofa": [
+      "face",
+      "feathers",
+      "flat horizontal surface",
+      "fur",
+      "hull",
+      "leaves",
+      "screen",
+      "single seat",
+      "transparency",
+      "wheels",
+      "wings",
+      "wool"
+    ],
+    "train": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "fur",
+      "handlebars",
+      "hull",
+      "leaves",
+      "legs",
+      "screen",
+      "skin",
+      "steering wheel",
+      "transparency",
+      "wings"
+    ],
+    "tvmonitor": [
+      "cushions",
+      "feathers",
+      "flat surface",
+      "fur",
+      "hull",
+      "leaves",
+      "legs",
+      "skin",
+      "transparency",
+      "wheels",
+      "wings"
+    ],
+    "aeroplane": [
+      "cushioned surface",
+      "feathers",
+      "flat surface",
+      "fur",
+      "green leaves",
+      "handlebars",
+      "hull",
+      "legs",
+      "limbs",
+      "pedals",
+      "rails",
+      "screen",
+      "transparency",
+      "wheels",
+      "wheels on the ground",
+      "wool"
+    ]
+  }
+}

@@ -97,7 +97,7 @@ owod_val_evaluator = dict(
 )
 
 train_dataloader = dict(
-    batch_size=12,
+    batch_size=6,
     num_workers=12,
     persistent_workers=True,
     sampler=dict(type='DefaultSampler', shuffle=True),

@@ -53,6 +53,7 @@ class FasterIPOW(TwoStageDetector):
         self.dist_concept_embeddings = nn.Parameter(dist_concept_feat['embeddings'], requires_grad=False)
 
         # 随机初始化一个可训练的背景 embedding 与 前景类别
+        self.obj_emb = nn.Parameter(torch.randn(1, known_embeddings_tensor.size(1)), requires_grad=True)
         self.background_emb = nn.Parameter(torch.randn(1, known_embeddings_tensor.size(1)), requires_grad=True)
         # gmm_models
         self.gmm_models = joblib.load(self.owod_cfg.randm_gmm_path)['models']

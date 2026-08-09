@@ -3,11 +3,13 @@
 import numpy as np
 import torch
 from mmengine.structures import InstanceData
+from torchvision.ops import box_iou
 from torchvision.ops import nms
 
 
 def filter_gmm_boxes_with_rpn(rpn_bboxes, gmm_boxes, gmm_labels,
-                              gmm_scores, iou_thr=0.5):
+                              gmm_scores, iou_thr=0.5,
+                              chunk_size=2048):
     """Keep valid GMM boxes that do not overlap RPN proposals too much."""
     if rpn_bboxes.numel() == 0 or gmm_boxes.numel() == 0:
         return gmm_boxes, gmm_labels, gmm_scores
@@ -25,19 +27,13 @@ def filter_gmm_boxes_with_rpn(rpn_bboxes, gmm_boxes, gmm_labels,
     if gmm_boxes.numel() == 0:
         return gmm_boxes, gmm_labels, gmm_scores
 
-    rpn = rpn_bboxes[:, None, :]
-    gmm = gmm_boxes[None, :, :]
-    inter_x1 = torch.max(rpn[..., 0], gmm[..., 0])
-    inter_y1 = torch.max(rpn[..., 1], gmm[..., 1])
-    inter_x2 = torch.min(rpn[..., 2], gmm[..., 2])
-    inter_y2 = torch.min(rpn[..., 3], gmm[..., 3])
-    inter = ((inter_x2 - inter_x1).clamp(min=0) *
-             (inter_y2 - inter_y1).clamp(min=0))
-    area_rpn = (rpn[..., 2] - rpn[..., 0]) * (rpn[..., 3] - rpn[..., 1])
-    area_gmm = (gmm[..., 2] - gmm[..., 0]) * (gmm[..., 3] - gmm[..., 1])
-    union = area_rpn + area_gmm - inter
-    iou = inter / union.clamp(min=torch.finfo(inter.dtype).eps)
-    keep_mask = iou.max(dim=0).values <= iou_thr
+    # Avoid materializing an [num_rpn, num_gmm, 4] tensor.  Chunking also
+    # keeps memory bounded when the number of classes or samples increases.
+    max_ious = []
+    for start in range(0, gmm_boxes.size(0), chunk_size):
+        chunk = gmm_boxes[start:start + chunk_size]
+        max_ious.append(box_iou(chunk, rpn_bboxes).amax(dim=1))
+    keep_mask = torch.cat(max_ious, dim=0) <= iou_thr
     return (gmm_boxes[keep_mask], gmm_labels[keep_mask],
             gmm_scores[keep_mask])
 
@@ -63,15 +59,27 @@ def sample_all_categories_from_model(models, num_per_class=50,
     all_proposals = []
     for gmm in models.values():
         samples = _sample_gmm(gmm, num_per_class, rng)
-        for cx, cy, log_w, log_h in samples:
-            w, h = np.exp(log_w), np.exp(log_h)
-            xmin = max(0, (cx - w / 2) * img_w)
-            ymin = max(0, (cy - h / 2) * img_h)
-            xmax = min(img_w, (cx + w / 2) * img_w)
-            ymax = min(img_h, (cy + h / 2) * img_h)
-            if xmax > xmin and ymax > ymin:
-                all_proposals.append([xmin, ymin, xmax, ymax])
-    return np.asarray(all_proposals, dtype=np.float32).reshape(-1, 4)
+        if samples.size == 0:
+            continue
+        # Decode all samples in one NumPy operation instead of looping over
+        # every box in Python.  The GMM coordinate convention is unchanged.
+        widths = np.exp(samples[:, 2])
+        heights = np.exp(samples[:, 3])
+        boxes = np.column_stack((
+            (samples[:, 0] - widths / 2) * img_w,
+            (samples[:, 1] - heights / 2) * img_h,
+            (samples[:, 0] + widths / 2) * img_w,
+            (samples[:, 1] + heights / 2) * img_h,
+        ))
+        boxes[:, [0, 2]] = np.clip(boxes[:, [0, 2]], 0, img_w)
+        boxes[:, [1, 3]] = np.clip(boxes[:, [1, 3]], 0, img_h)
+        valid = ((boxes[:, 2] > boxes[:, 0]) &
+                 (boxes[:, 3] > boxes[:, 1]))
+        if np.any(valid):
+            all_proposals.append(boxes[valid])
+    if not all_proposals:
+        return np.empty((0, 4), dtype=np.float32)
+    return np.concatenate(all_proposals, axis=0).astype(np.float32, copy=False)
 
 
 def build_gmm_rpn_results(rpn_results_list, data_samples, gmm_models,

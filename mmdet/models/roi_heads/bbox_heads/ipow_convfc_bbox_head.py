@@ -689,9 +689,6 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
             else:
                 losses['acc'] = accuracy(cls_score, labels)
 
-            # --------------------------------------------------------
-            # 3️⃣ 将已知标签映射到超类 (真实匹配)
-            # --------------------------------------------------------
             obj_assigned_labels = torch.zeros((num_preds, 1),
                                               device=labels.device,
                                               dtype=torch.float32)
@@ -709,6 +706,36 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
                 reduction_override=reduction_override)
 
             losses['loss_cls_obj'] = loss_cls_obj_
+
+        if bbox_pred is not None:
+            bg_class_ind = self.num_classes
+            # 0~self.num_classes-1 are FG, self.num_classes is BG
+            pos_inds = (labels >= 0) & (labels < bg_class_ind)
+            # do not perform bounding box regression for BG anymore.
+            if pos_inds.any():
+                if self.reg_decoded_bbox:
+                    # When the regression loss (e.g. `IouLoss`,
+                    # `GIouLoss`, `DIouLoss`) is applied directly on
+                    # the decoded bounding boxes, it decodes the
+                    # already encoded coordinates to absolute format.
+                    bbox_pred = self.bbox_coder.decode(rois[:, 1:], bbox_pred)
+                    bbox_pred = get_box_tensor(bbox_pred)
+                if self.reg_class_agnostic:
+                    pos_bbox_pred = bbox_pred.view(
+                        bbox_pred.size(0), -1)[pos_inds.type(torch.bool)]
+                else:
+                    pos_bbox_pred = bbox_pred.view(
+                        bbox_pred.size(0), self.num_classes,
+                        -1)[pos_inds.type(torch.bool),
+                            labels[pos_inds.type(torch.bool)]]
+                losses['loss_bbox'] = self.loss_bbox(
+                    pos_bbox_pred,
+                    bbox_targets[pos_inds.type(torch.bool)],
+                    bbox_weights[pos_inds.type(torch.bool)],
+                    avg_factor=bbox_targets.size(0),
+                    reduction_override=reduction_override)
+            else:
+                losses['loss_bbox'] = bbox_pred[pos_inds].sum()
 
         return losses
 
@@ -757,17 +784,11 @@ class IPOWShared2FCBBoxHead(IPOWConvFCBBoxHead):
         num_rois = roi.size(0)
         # bbox_pred would be None in some detector when with_reg is False,
         # e.g. Grid R-CNN.
-        if bbox_pred is not None:
-            num_classes = 1 if self.reg_class_agnostic else self.num_classes
-            roi = roi.repeat_interleave(num_classes, dim=0)
-            bbox_pred = bbox_pred.view(-1, self.bbox_coder.encode_size)
-            bboxes = self.bbox_coder.decode(
-                roi[..., 1:], bbox_pred, max_shape=img_shape)
-        else:
-            bboxes = roi[:, 1:].clone()
-            if img_shape is not None and bboxes.size(-1) == 4:
-                bboxes[:, [0, 2]].clamp_(min=0, max=img_shape[1])
-                bboxes[:, [1, 3]].clamp_(min=0, max=img_shape[0])
+        num_classes = 1 if self.reg_class_agnostic else self.num_classes
+        roi = roi.repeat_interleave(num_classes, dim=0)
+        bbox_pred = bbox_pred.view(-1, self.bbox_coder.encode_size)
+        bboxes = self.bbox_coder.decode(
+            roi[..., 1:], bbox_pred, max_shape=img_shape)
 
         if rescale and bboxes.size(0) > 0:
             assert img_meta.get('scale_factor') is not None

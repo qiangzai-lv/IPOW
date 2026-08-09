@@ -6,14 +6,16 @@ _base_ = [
 num_classes = 20
 rpn_proposal_nums = 800
 
+resume = True
+
 backbone_checkpoint = 'https://download.pytorch.org/models/resnet50-11ad3fa6.pth'
 
 owod_cfg = dict(
-    known_text_embeddings_path='embeddings/cls_embeddings/mowod_t1_embeddings.pt',
-    con_concept_feat_path='embeddings/concept_embeddings/MOWODB_t1_share_embeddings.pth',
-    dist_concept_feat_path='embeddings/concept_embeddings/MOWODB_t1_dist_embeddings.pth',
-    randm_gmm_path='embeddings/gmm_rpn/mowodb_t1_class_gmm.pkl',
-    gmm_n_samples=120,
+    known_text_embeddings_path='/root/shared-nvme/IPOW/embeddings/cls_embeddings/mowod_t1_embeddings.pt',
+    con_concept_feat_path='/root/shared-nvme/IPOW/embeddings/concept_embeddings/mowodb_t1/MOWODB_t1_share_embeddings.pth',
+    dist_concept_feat_path='/root/shared-nvme/IPOW/embeddings/concept_embeddings/mowodb_t1_dist/MOWODB_t1_dist_embeddings.pth',
+    randm_gmm_path='/root/shared-nvme/IPOW/embeddings/gmm_rpn/mowodb_t1_class_gmm.pkl',
+    gmm_n_samples=80,
     gmm_iou_thresh=0.7
 )
 

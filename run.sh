@@ -1,5 +1,6 @@
-PORT=29501 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/baseline/faster-rcnn_r50_fpn_1x_voc_0.02.py 1 --amp
+PORT=29501 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/ipow/ipow_owod_mowodb_t1.py 8 --amp
 
+PORT=29502 DATASET=MOWODB TASK=1 bash ./tools/dist_train.sh configs/ipow/ipow_owod_mowodb_t1_120.py 8 --amp
 
 python utils_ipow/gmm.py \
   --data-root /root/shared-nvme/data/OWOD \
